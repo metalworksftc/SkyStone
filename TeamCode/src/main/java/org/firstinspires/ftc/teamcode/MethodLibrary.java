@@ -28,8 +28,9 @@ public abstract class MethodLibrary extends LinearOpMode {
     protected BNO055IMU imu;
     protected int relativeLayoutId;
     protected Orientation angles;
-    //Servo
-    //protected Servo servo;
+   // Servo
+    protected Servo servo;
+
 
 
 
@@ -63,7 +64,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         left = hardwareMap.dcMotor.get("lm");
         right = hardwareMap.dcMotor.get("rm");
-        //servo = hardwareMap.servo.get("s");
+        servo = hardwareMap.servo.get("s");
 
         right.setDirection(DcMotorSimple.Direction.REVERSE);
 
