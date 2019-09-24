@@ -4,11 +4,12 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name = "TankDrive")
 //@Disabled
 public class TankDrive extends OpMode {
-
+    Servo servo;
     DcMotor lm, rm;
 
 
@@ -18,6 +19,8 @@ public class TankDrive extends OpMode {
         lm = hardwareMap.dcMotor.get("lm");
         rm = hardwareMap.dcMotor.get("rm");
         lm.setDirection(DcMotorSimple.Direction.REVERSE);
+        servo = hardwareMap.servo.get("s");
+
 
     }
 
@@ -25,7 +28,7 @@ public class TankDrive extends OpMode {
     public void loop() {
         lm.setPower(gamepad1.left_stick_y);
         rm.setPower(gamepad1.right_stick_y);
-
+        servo.setPosition(gamepad1.right_trigger);
 
 
     }
