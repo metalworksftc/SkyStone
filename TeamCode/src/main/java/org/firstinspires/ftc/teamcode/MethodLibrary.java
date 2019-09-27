@@ -121,13 +121,13 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         power = -power;
 
-        int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+        int target = right.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
         left.setPower(power);
         right.setPower(power);
 
-        while (left.getCurrentPosition() > target) {
-            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target + " counts");
+        while (right.getCurrentPosition() > target) {
+            telemetry.addLine("Driving: " + right.getCurrentPosition() + " of " + target + " counts");
             telemetry.update();
         }
 
