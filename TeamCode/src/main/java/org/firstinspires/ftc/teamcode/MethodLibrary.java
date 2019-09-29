@@ -66,7 +66,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         right = hardwareMap.dcMotor.get("rm");
         servo = hardwareMap.servo.get("s");
 
-        right.setDirection(DcMotorSimple.Direction.REVERSE);
+        left.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
         BNO055IMU.Parameters parameters2 = new BNO055IMU.Parameters();
@@ -96,18 +96,19 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         final double COUNTS_PER_INCH = 1000.0/13.50;
 
-        int target = right.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+        int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
         left.setPower(power);
         right.setPower(power);
 
-        while (right.getCurrentPosition() < target) {
-            telemetry.addLine("Driving: " + right.getCurrentPosition() + " of " + target + " counts");
+        while (left.getCurrentPosition() < target) {
+            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target + " counts");
             telemetry.update();
         }
 
         left.setPower(0);
         right.setPower(0);
+        waitSec(.5);
     }
 
     /**
@@ -121,19 +122,20 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         power = -power;
 
-        int target = right.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+        int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
         left.setPower(power);
         right.setPower(power);
 
-        while (right.getCurrentPosition() > target) {
-            telemetry.addLine("Driving: " + right.getCurrentPosition() + " of " + target + " counts");
+        while (left.getCurrentPosition() > target) {
+            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target + " counts");
             telemetry.update();
         }
 
 
         left.setPower(0);
         right.setPower(0);
+        waitSec(0.5);
     }
 
     /**
@@ -181,6 +183,16 @@ public abstract class MethodLibrary extends LinearOpMode {
         }
         left.setPower(0);
         right.setPower(0);
+        waitSec(0.5);
     }
 
+    protected void engageHook() {
+        servo.setPosition(0);
+        waitSec(1.5);
+    }
+
+    protected void disengageHook() {
+        servo.setPosition(1);
+        waitSec(1.5);
+    }
 }
