@@ -18,7 +18,7 @@ public class TankDrive extends OpMode {
         telemetry.addLine("Running");
         lm = hardwareMap.dcMotor.get("lm");
         rm = hardwareMap.dcMotor.get("rm");
-        lm.setDirection(DcMotorSimple.Direction.REVERSE);
+        rm.setDirection(DcMotorSimple.Direction.REVERSE);
         servo = hardwareMap.servo.get("s");
 
 
@@ -30,7 +30,7 @@ public class TankDrive extends OpMode {
         rm.setPower(gamepad1.right_stick_y);
         servo.setPosition(gamepad1.right_trigger);
 
-        
+
     }
 
 
