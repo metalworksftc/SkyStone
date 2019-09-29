@@ -22,7 +22,7 @@ public class MoveBlueFoundation extends MethodLibrary {
         //drive to foundation
         drive(24,driveSpeed);
         absoluteTurn(90);
-        drive(27,driveSpeed);
+        drive(29,driveSpeed);
         absoluteTurn(0);
         drive(28.5-robotLength,driveSpeed);
         //attach to foundation
