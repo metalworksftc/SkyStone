@@ -3,11 +3,14 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
+import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRColor;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -28,6 +31,8 @@ public abstract class MethodLibrary extends LinearOpMode {
     protected BNO055IMU imu;
     protected int relativeLayoutId;
     protected Orientation angles;
+    //color sensor
+    protected ColorSensor cs;
    // Servo
     protected Servo servo;
 
@@ -84,6 +89,10 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         telemetry.addLine("Status: Initialized");
         telemetry.update();
+
+        cs = hardwareMap.colorSensor.get("cs");
+
+
 
     }
 
