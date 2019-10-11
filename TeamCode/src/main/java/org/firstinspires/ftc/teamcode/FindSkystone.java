@@ -8,6 +8,7 @@ import java.sql.Driver;
 //@Disabled
 public class FindSkystone extends MethodLibrary {
 
+
     @Override
     public void runOpMode() {
 
@@ -18,25 +19,24 @@ public class FindSkystone extends MethodLibrary {
 
         double driveSpeed=0.5;
         double robotLength=17.5;
+        engageHook();
 
-        drive(43-robotLength,driveSpeed);
+        drive(50-robotLength,driveSpeed);
         absoluteTurn(-90);
+        reverse(20,0.5);
+        disengageHook();
 
         waitSec(1);
 
-        while (cs.alpha() > 34 && cs.red() >   14) {
-            reverse(1, 0.35);
+        while (cs.alpha() > 32 && cs.red() >   14) {
+            reverse(3, 0.35);
             telemetry.addLine("Waiting for Skystone");
             telemetry.update();
 
         }
-            while (true) {
-                String message = cs.alpha() + " " + cs.green() + " " + cs.blue() + " " + cs.red();
-                telemetry.addLine(message);
-                telemetry.update();
-                cs.alpha();
-            }
-
+        drive(11,0.5);
+        absoluteTurn(180);
+        waitSec(3);
 
 
     }

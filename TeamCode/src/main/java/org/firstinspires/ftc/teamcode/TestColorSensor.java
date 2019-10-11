@@ -14,11 +14,13 @@ public class TestColorSensor extends MethodLibrary {
         waitForStart();
         //Put your autonomous code after this line
 
+
         while (true) {
             String message = cs.alpha() + " " + cs.green() + " " + cs.blue() + " " + cs.red();
             telemetry.addLine(message);
             telemetry.update();
             cs.alpha();
+
         }
 
     }
