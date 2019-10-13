@@ -28,7 +28,7 @@ public class FindSkystone extends MethodLibrary {
 
         waitSec(1);
 
-        while (cs.alpha() > 32 && cs.red() >   14) {
+        while (isBlack()) {
             reverse(3, 0.35);
             telemetry.addLine("Waiting for Skystone");
             telemetry.update();
@@ -39,6 +39,10 @@ public class FindSkystone extends MethodLibrary {
         waitSec(3);
 
 
+    }
+
+    private boolean isBlack() {
+        return cs.alpha() > 32 && cs.red() >   14;
     }
 
 }
