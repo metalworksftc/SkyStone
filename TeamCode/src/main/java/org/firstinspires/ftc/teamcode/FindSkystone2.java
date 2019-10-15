@@ -14,7 +14,6 @@ public class FindSkystone2 extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
-        servo.setPosition(0.5);
         drive(30.5, 0.5);
         servo.setPosition(0);
         waitSec(1);

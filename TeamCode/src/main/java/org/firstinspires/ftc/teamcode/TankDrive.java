@@ -26,9 +26,9 @@ public class TankDrive extends OpMode {
 
     @Override
     public void loop() {
-        lm.setPower(gamepad1.left_stick_y *0.5);
-        rm.setPower(gamepad1.right_stick_y * 0.5);
-        servo.setPosition(gamepad1.right_trigger);
+        lm.setPower(gamepad1.left_stick_y);
+        rm.setPower(gamepad1.right_stick_y);
+        servo.setPosition(gamepad1.right_trigger * 0.4 + 0.6);
 
 
     }

@@ -196,7 +196,7 @@ public abstract class MethodLibrary extends LinearOpMode {
     }
 
     protected void engageHook() {
-        servo.setPosition(0);
+        servo.setPosition(0.6);
         waitSec(1.5);
     }
 
