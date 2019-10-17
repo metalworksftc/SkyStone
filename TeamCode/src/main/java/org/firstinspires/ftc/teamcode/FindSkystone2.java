@@ -16,22 +16,33 @@ public class FindSkystone2 extends MethodLibrary {
         //Put your autonomous code after this line
         drive(30.5, 0.5);
         servo.setPosition(0);
-        waitSec(1);
+        waitSec(3);
         int block1 = cs.alpha();
         servo.setPosition(1);
-        waitSec(1);
+        waitSec(3);
         int block3 = cs.alpha();
+        int skystone = -1;
+        if (isBlack(block1)) {
+            skystone = 1;
+        }
+        else if (isBlack(block3)) {
+            skystone = 3;
+        }
+        else {
+            skystone = 2;
+        }
+
 
         while (true) {
-            telemetry.addLine("Block 1 " + block1 + " Block 3 " + block3);
+            telemetry.addLine("skystone" + " is" + (skystone));
             telemetry.update();
             cs.alpha();
         }
 
     }
 
-    private boolean isBlack() {
-        return cs.alpha() > 32 && cs.red() >   14;
+    private boolean isBlack(int alpha) {
+        return alpha < 100;
     }
 
 }
