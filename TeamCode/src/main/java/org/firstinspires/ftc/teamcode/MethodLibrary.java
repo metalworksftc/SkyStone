@@ -25,7 +25,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     // Motors
     //protected DcMotor leftFrontM, leftBackM, rightFrontM, rightBackM;
-    protected DcMotor left, right;
+    protected DcMotor left, right, top, bottom;
 
     // Gyro Sensor instance variables
     protected BNO055IMU imu;
@@ -35,6 +35,7 @@ public abstract class MethodLibrary extends LinearOpMode {
     protected ColorSensor cs;
    // Servo
     protected Servo servo;
+    protected Servo stoneServo;
 
 
 
@@ -70,6 +71,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         left = hardwareMap.dcMotor.get("lm");
         right = hardwareMap.dcMotor.get("rm");
         servo = hardwareMap.servo.get("s");
+        stoneServo = hardwareMap.servo.get("ss");
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -202,6 +204,15 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void disengageHook() {
         servo.setPosition(1);
+        waitSec(1.5);
+    }
+
+    protected void grab()  {
+        stoneServo.setPosition(1);
+        waitSec(1.5);
+    }
+    protected void release() {
+        servo.setPosition(0.5);
         waitSec(1.5);
     }
 }
