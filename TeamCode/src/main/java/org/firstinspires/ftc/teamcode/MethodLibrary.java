@@ -18,14 +18,13 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public abstract class MethodLibrary extends LinearOpMode {
 
-
     /*
      * Instance Variables
      */
 
     // Motors
     //protected DcMotor leftFrontM, leftBackM, rightFrontM, rightBackM;
-    protected DcMotor left, right, top, bottom;
+    protected DcMotor left, right, horiz, vertical;
 
     // Gyro Sensor instance variables
     protected BNO055IMU imu;
@@ -70,6 +69,8 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         left = hardwareMap.dcMotor.get("lm");
         right = hardwareMap.dcMotor.get("rm");
+        horiz = hardwareMap.dcMotor.get("tm");
+        vertical = hardwareMap.dcMotor.get("bm");
         servo = hardwareMap.servo.get("s");
         stoneServo = hardwareMap.servo.get("ss");
 
@@ -212,7 +213,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(1.5);
     }
     protected void release() {
-        servo.setPosition(0.5);
+        stoneServo.setPosition(0.5);
         waitSec(1.5);
     }
 }
