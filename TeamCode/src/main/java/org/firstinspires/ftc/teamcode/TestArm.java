@@ -13,8 +13,18 @@ public class TestArm extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
+        raise(6);
+        waitSec(3);
+        extend(6);
+        waitSec(3);
         grab();
+        waitSec(3);
         release();
+        waitSec(3);
+        retract(6);
+        waitSec(3);
+        lower(6);
+
 
 
 

@@ -41,7 +41,6 @@ public class FindSkystone2 extends MethodLibrary {
             telemetry.update();
             cs.alpha();
         }
-
     }
 
     private void goToStone3() {
@@ -49,7 +48,9 @@ public class FindSkystone2 extends MethodLibrary {
         absoluteTurn(90);
         drive(3,0.5);
         absoluteTurn(180);
-        reverse(3,0.5);
+        reverse(5,0.5);
+       pickUpBlock();
+
     }
 
     private void goToStone2() {
@@ -57,7 +58,8 @@ public class FindSkystone2 extends MethodLibrary {
         absoluteTurn(-90);
         drive(1.5,0.5);
         absoluteTurn(180);
-        reverse(3,0.5);
+        reverse(5,0.5);
+        pickUpBlock();
     }
 
     private void goToStone1() {
@@ -65,7 +67,17 @@ public class FindSkystone2 extends MethodLibrary {
         absoluteTurn(-90);
         drive(10,0.5);
         absoluteTurn(180);
-        reverse(3,0.5);
+        reverse(5,0.5);
+       pickUpBlock();
+    }
+
+    private void pickUpBlock ()  {
+        raise(3);
+        extend(9);
+        lower(2.5);
+        grab();
+        raise(2.5);
+        retract(9);
     }
 
     private boolean isBlack(int alpha) {

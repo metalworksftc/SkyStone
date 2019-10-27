@@ -24,7 +24,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     // Motors
     //protected DcMotor leftFrontM, leftBackM, rightFrontM, rightBackM;
-    protected DcMotor left, right, horiz, vertical;
+    protected DcMotor left, right, horizontal, vertical;
 
     // Gyro Sensor instance variables
     protected BNO055IMU imu;
@@ -69,10 +69,10 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         left = hardwareMap.dcMotor.get("lm");
         right = hardwareMap.dcMotor.get("rm");
-        horiz = hardwareMap.dcMotor.get("tm");
         vertical = hardwareMap.dcMotor.get("bm");
-        servo = hardwareMap.servo.get("s");
         stoneServo = hardwareMap.servo.get("ss");
+        vertical =  hardwareMap.dcMotor.get("tm");
+        horizontal = hardwareMap.dcMotor.get("bm");
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -123,6 +123,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(.5);
     }
 
+
     /**
      * Drives forwards only
      * @param inches the number of inches to drive
@@ -150,6 +151,83 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(0.5);
     }
 
+    protected void extend(double inches) {
+
+        final double COUNTS_PER_INCH = 100.0/100.0;
+
+        int target = horizontal.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        horizontal.setPower(0.5);
+
+        while (horizontal.getCurrentPosition() < target) {
+            telemetry.addLine("Driving: " + horizontal.getCurrentPosition() + " of " + target + " counts");
+            telemetry.update();
+        }
+
+        horizontal.setPower(0);
+        waitSec(.5);
+    }
+
+    /**
+     * Drives forwards only
+     * @param inches the number of inches to drive
+     */
+    protected void retract(double inches) {
+
+        final double COUNTS_PER_INCH = -100.0/100.0;
+
+        int target = horizontal.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        horizontal.setPower(-0.5);
+
+        while (horizontal.getCurrentPosition() > target) {
+            telemetry.addLine("Driving: " + horizontal.getCurrentPosition() + " of " + target + " counts");
+            telemetry.update();
+        }
+
+
+        horizontal.setPower(0);
+        waitSec(0.5);
+    }
+
+    protected void raise(double inches) {
+
+        final double COUNTS_PER_INCH = 100.0/100.0;
+
+        int target = vertical.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        vertical.setPower(0.5);
+
+        while (vertical.getCurrentPosition() < target) {
+            telemetry.addLine("Driving: " + vertical.getCurrentPosition() + " of " + target + " counts");
+            telemetry.update();
+        }
+
+        vertical.setPower(0);
+        waitSec(.5);
+    }
+
+    /**
+     * Drives forwards only
+     * @param inches the number of inches to drive
+     */
+    protected void lower(double inches) {
+
+        final double COUNTS_PER_INCH = -100.0/100.0;
+
+        int target = vertical.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        vertical.setPower(-0.5);
+
+        while (vertical.getCurrentPosition() > target) {
+            telemetry.addLine("Driving: " + vertical.getCurrentPosition() + " of " + target + " counts");
+            telemetry.update();
+        }
+
+
+        vertical.setPower(0);
+        waitSec(0.5);
+    }
     /**
      * You have to write this!
      * @param target the angle (in degrees) to turn to, between -180 and 180 inclusive
