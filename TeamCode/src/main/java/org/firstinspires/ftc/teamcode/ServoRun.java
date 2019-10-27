@@ -15,8 +15,8 @@ public class ServoRun extends MethodLibrary {
         //Put your autonomous code after this line
 
         drive(16,0.5);
-        servo.setPosition(1);
-        servo.setPosition(0);
+        tailServo.setPosition(1);
+        tailServo.setPosition(0);
         reverse(16,0.5);
 
         stop();

@@ -9,8 +9,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorMRColor;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -33,7 +31,7 @@ public abstract class MethodLibrary extends LinearOpMode {
     //color sensor
     protected ColorSensor cs;
    // Servo
-    protected Servo servo;
+    protected Servo tailServo;
     protected Servo stoneServo;
 
 
@@ -70,6 +68,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         left = hardwareMap.dcMotor.get("lm");
         right = hardwareMap.dcMotor.get("rm");
         vertical = hardwareMap.dcMotor.get("bm");
+        tailServo = hardwareMap.servo.get("ts");
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
         horizontal = hardwareMap.dcMotor.get("bm");
@@ -277,12 +276,12 @@ public abstract class MethodLibrary extends LinearOpMode {
     }
 
     protected void engageHook() {
-        servo.setPosition(0.6);
+        tailServo.setPosition(0.6);
         waitSec(1.5);
     }
 
     protected void disengageHook() {
-        servo.setPosition(1);
+        tailServo.setPosition(1);
         waitSec(1.5);
     }
 

@@ -38,7 +38,7 @@ public class Day5Autonomous extends Day5AutoMethodLibrary {
 
         int count = 0;
 
-        //servo.scaleRange(0, 0);
+        //tailServo.scaleRange(0, 0);
         while (count < 1) {
             servo.setPosition(0);
             waitSec(2);
@@ -51,7 +51,7 @@ public class Day5Autonomous extends Day5AutoMethodLibrary {
 
 
 
-//        double position = servo.getPosition();
+//        double position = tailServo.getPosition();
 //        telemetry.addLine(String.valueOf(position));
 //        telemetry.update();
 //        waitSec(2);

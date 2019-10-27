@@ -20,7 +20,7 @@ public class TankDrive extends OpMode {
         lm = hardwareMap.dcMotor.get("lm");
         rm = hardwareMap.dcMotor.get("rm");
         rm.setDirection(DcMotorSimple.Direction.REVERSE);
-        servo = hardwareMap.servo.get("s");
+        servo = hardwareMap.servo.get("ts");
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
         horizontal = hardwareMap.dcMotor.get("bm");
