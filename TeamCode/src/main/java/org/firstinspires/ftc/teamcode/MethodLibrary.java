@@ -74,7 +74,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         horizontal = hardwareMap.dcMotor.get("bm");
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
-
+        horizontal.setDirection(DcMotorSimple.Direction.REVERSE);
 
         BNO055IMU.Parameters parameters2 = new BNO055IMU.Parameters();
         parameters2.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
@@ -152,7 +152,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void extend(double inches) {
 
-        final double COUNTS_PER_INCH = 100.0/100.0;
+        final double COUNTS_PER_INCH = 100.0/7.0;
 
         int target = horizontal.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -173,7 +173,7 @@ public abstract class MethodLibrary extends LinearOpMode {
      */
     protected void retract(double inches) {
 
-        final double COUNTS_PER_INCH = -100.0/100.0;
+        final double COUNTS_PER_INCH = -1000.0/7.0;
 
         int target = horizontal.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -191,7 +191,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void raise(double inches) {
 
-        final double COUNTS_PER_INCH = 100.0/100.0;
+        final double COUNTS_PER_INCH = 1000.0/1.875;
 
         int target = vertical.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -212,7 +212,7 @@ public abstract class MethodLibrary extends LinearOpMode {
      */
     protected void lower(double inches) {
 
-        final double COUNTS_PER_INCH = -100.0/100.0;
+        final double COUNTS_PER_INCH = -1000.0/1.875;
 
         int target = vertical.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 

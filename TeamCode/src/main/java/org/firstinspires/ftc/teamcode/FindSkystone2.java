@@ -16,10 +16,10 @@ public class FindSkystone2 extends MethodLibrary {
         //Put your autonomous code after this line
         drive(30.5, 0.5);
         tailServo.setPosition(0);
-        waitSec(3);
+        waitSec(1.5);
         int block1 = cs.alpha();
         tailServo.setPosition(1);
-        waitSec(3);
+        waitSec(1.5);
         int block3 = cs.alpha();
         int skystone = -1;
         if (isBlack(block1)) {
@@ -48,9 +48,8 @@ public class FindSkystone2 extends MethodLibrary {
         absoluteTurn(90);
         drive(3,0.5);
         absoluteTurn(180);
-        reverse(5,0.5);
-       pickUpBlock();
-
+        pickUpBlock();
+        deliverBlock();
     }
 
     private void goToStone2() {
@@ -58,8 +57,8 @@ public class FindSkystone2 extends MethodLibrary {
         absoluteTurn(-90);
         drive(1.5,0.5);
         absoluteTurn(180);
-        reverse(5,0.5);
         pickUpBlock();
+        deliverBlock();
     }
 
     private void goToStone1() {
@@ -67,17 +66,21 @@ public class FindSkystone2 extends MethodLibrary {
         absoluteTurn(-90);
         drive(10,0.5);
         absoluteTurn(180);
-        reverse(5,0.5);
-       pickUpBlock();
+        pickUpBlock();
+        deliverBlock();
     }
 
-    private void pickUpBlock ()  {
-        raise(3);
-        extend(9);
-        lower(2.5);
+    private void pickUpBlock() {
+        raise(6);
+        extend(17);
+        lower(6);
         grab();
-        raise(2.5);
-        retract(9);
+    }
+
+    private void deliverBlock() {
+        drive(18,0.5);
+        absoluteTurn(90);
+        reverse(30,0.5);
     }
 
     private boolean isBlack(int alpha) {
