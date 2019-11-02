@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "MoveRedFoundation")
+@Autonomous(name = "MoveBlueFoundationHalf")
 //@Disabled
-public class MoveRedFoundation extends MethodLibrary {
+public class MoveBlueFoundationHalf extends MethodLibrary {
 
     @Override
     public void runOpMode() {
@@ -22,7 +22,7 @@ public class MoveRedFoundation extends MethodLibrary {
         //drive to foundation
         engageHook();
         drive(24,driveSpeed);
-        absoluteTurn(-90);
+        absoluteTurn(90);
         drive(31,driveSpeed);
         absoluteTurn(0);
         drive(26-robotLength,driveSpeed);
@@ -36,9 +36,7 @@ public class MoveRedFoundation extends MethodLibrary {
         disengageHook();
         reverse(.5,driveSpeed);
         engageHook();
-        //parking
-        absoluteTurn(-90);
-        reverse(50d,driveSpeed);
+
 
 
     }

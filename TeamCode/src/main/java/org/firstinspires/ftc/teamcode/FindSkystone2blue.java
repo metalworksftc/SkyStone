@@ -2,9 +2,10 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "FindSkystone2")
+@Autonomous(name = "FindSkystone2blue")
 //@Disabled
-public class FindSkystone2 extends MethodLibrary {
+public class FindSkystone2blue extends MethodLibrary {
+
 
     @Override
     public void runOpMode() {
@@ -44,7 +45,7 @@ public class FindSkystone2 extends MethodLibrary {
 
     private void goToStone3() {
         reverse(4,0.5);
-        absoluteTurn(90);
+        absoluteTurn(-90);
         drive(3,0.5);
         absoluteTurn(180);
         pickUpBlock();
@@ -53,7 +54,7 @@ public class FindSkystone2 extends MethodLibrary {
 
     private void goToStone2() {
         reverse(4,0.5);
-        absoluteTurn(-90);
+        absoluteTurn(90);
         drive(1.5,0.5);
         absoluteTurn(180);
         pickUpBlock();
@@ -62,7 +63,7 @@ public class FindSkystone2 extends MethodLibrary {
 
     private void goToStone1() {
         reverse(4,0.5);
-        absoluteTurn(-90);
+        absoluteTurn(90);
         drive(10,0.5);
         absoluteTurn(180);
         pickUpBlock();
@@ -77,12 +78,13 @@ public class FindSkystone2 extends MethodLibrary {
     }
 
     private void deliverBlock() {
-        drive(40,0.5);
-        absoluteTurn(90);
+        drive(18,0.5);
+        absoluteTurn(-90);
         reverse(50,0.5);
     }
 
     private boolean isBlack(int alpha) {
+
         return alpha < 100;
     }
 
