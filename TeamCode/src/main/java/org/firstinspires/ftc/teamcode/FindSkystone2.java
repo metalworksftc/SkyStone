@@ -21,6 +21,7 @@ public class FindSkystone2 extends MethodLibrary {
         waitSec(3);
         int block3 = cs.alpha();
         int skystone;
+
         if (isBlack(block1)) {
             skystone = 1;
             goToStone1();
@@ -35,11 +36,6 @@ public class FindSkystone2 extends MethodLibrary {
         }
 
 
-        while (true) {
-            telemetry.addLine("skystone" + " is " + (skystone));
-            telemetry.update();
-            cs.alpha();
-        }
     }
 
     private void goToStone3() {
@@ -48,38 +44,37 @@ public class FindSkystone2 extends MethodLibrary {
         drive(3,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock();
+        deliverBlock(66);
     }
 
     private void goToStone2() {
         reverse(4,0.5);
-        absoluteTurn(-90);
-        drive(1.5,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock();
+        deliverBlock(58);
     }
 
     private void goToStone1() {
         reverse(4,0.5);
         absoluteTurn(-90);
-        drive(10,0.5);
+        drive(7,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock();
+        deliverBlock(45);
     }
 
     private void pickUpBlock() {
-        raise(6);
-        extend(40);
-        lower(6);
+        raise(4.5);
+        extend(48);
+        lower(4.5);
         grab();
     }
 
-    private void deliverBlock() {
-        drive(40,0.5);
+    private void deliverBlock(double dist) {
+        drive(5,0.5);
         absoluteTurn(90);
-        reverse(50,0.5);
+        reverse(dist,0.5);
+        drive(20,0.5);
     }
 
     private boolean isBlack(int alpha) {

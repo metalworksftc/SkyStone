@@ -11,6 +11,8 @@ public class MoveBlueFoundation extends MethodLibrary {
 
         hardwareMap();
 
+        engageHook();
+
         waitForStart();
         //Put your autonomous code after this line
 
@@ -20,7 +22,7 @@ public class MoveBlueFoundation extends MethodLibrary {
         double dragSpeed=0.8;
 
         //drive to foundation
-        engageHook();
+
         drive(24,driveSpeed);
         absoluteTurn(90);
         drive(31,driveSpeed);

@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "FindSkystone2blue")
+@Autonomous(name = "FindSkystone2Blue")
 //@Disabled
-public class FindSkystone2blue extends MethodLibrary {
+public class FindSkystone2Blue extends MethodLibrary {
 
 
     @Override
