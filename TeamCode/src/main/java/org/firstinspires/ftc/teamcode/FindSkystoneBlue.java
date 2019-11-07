@@ -2,10 +2,11 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "FindSkystone2Blue")
-//@Disabled
-public class FindSkystone2Blue extends MethodLibrary {
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+@Autonomous(name = "FindSkystoneBlue")
+//@Disabled
+public class FindSkystoneBlue extends MethodLibrary {
 
     @Override
     public void runOpMode() {
@@ -15,10 +16,10 @@ public class FindSkystone2Blue extends MethodLibrary {
         waitForStart();
         //Put your autonomous code after this line
         drive(31, 0.5);
-        tailServo.setPosition(0);
+        tailServo.setPosition(1);
         waitSec(3);
         int block1 = cs.alpha();
-        tailServo.setPosition(1);
+        tailServo.setPosition(0);
         waitSec(3);
         int block3 = cs.alpha();
         int skystone;
@@ -34,13 +35,8 @@ public class FindSkystone2Blue extends MethodLibrary {
             skystone = 2;
             goToStone2();
         }
-
-
-        while (true) {
-            telemetry.addLine("skystone" + " is " + (skystone));
-            telemetry.update();
-            cs.alpha();
-        }
+        telemetry.addLine(String.valueOf(skystone));
+        telemetry.update();
     }
 
     private void goToStone3() {
@@ -49,42 +45,41 @@ public class FindSkystone2Blue extends MethodLibrary {
         drive(3,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock();
+        deliverBlock(70);
     }
 
     private void goToStone2() {
         reverse(4,0.5);
-        absoluteTurn(90);
-        drive(1.5,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock();
+        deliverBlock(65);
     }
 
     private void goToStone1() {
         reverse(4,0.5);
         absoluteTurn(90);
-        drive(10,0.5);
+        drive(7,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock();
+        deliverBlock(45);
     }
 
     private void pickUpBlock() {
-        raise(6);
-        extend(40);
-        lower(6);
+        raise(4.5);
+        extend(48);
+        lower(4.5);
         grab();
     }
 
-    private void deliverBlock() {
-        drive(18,0.5);
+    private void deliverBlock(double dist) {
+        drive(5,0.5);
         absoluteTurn(-90);
-        reverse(50,0.5);
+        reverse(dist,0.5);
+        //parks on line
+        drive(20,0.5);
     }
 
     private boolean isBlack(int alpha) {
-
         return alpha < 100;
     }
 
