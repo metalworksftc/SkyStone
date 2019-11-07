@@ -44,14 +44,14 @@ public class FindSkystone2 extends MethodLibrary {
         drive(3,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(66);
+        deliverBlock(70);
     }
 
     private void goToStone2() {
         reverse(4,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(58);
+        deliverBlock(65);
     }
 
     private void goToStone1() {
