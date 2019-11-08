@@ -247,8 +247,8 @@ public abstract class MethodLibrary extends LinearOpMode {
                     distLeft += 360;
                 }
                 double power = 0.01* (distLeft + 20);
-                if (power > 0.6) {
-                    power = 0.6;
+                if (power > 0.8) {
+                    power = 0.8;
                 }
 
                 left.setPower(-power);
@@ -277,12 +277,12 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void engageHook() {
         tailServo.setPosition(0.6);
-        waitSec(1.5);
+        waitSec(1);
     }
 
     protected void disengageHook() {
         tailServo.setPosition(1);
-        waitSec(1.5);
+        waitSec(1);
     }
 
     protected void grab()  {

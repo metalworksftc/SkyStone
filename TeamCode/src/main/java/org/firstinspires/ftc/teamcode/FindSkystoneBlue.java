@@ -15,7 +15,7 @@ public class FindSkystoneBlue extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
-        drive(31, 0.5);
+        drive(29, 0.6);
         tailServo.setPosition(1);
         waitSec(3);
         int block1 = cs.alpha();
@@ -74,9 +74,9 @@ public class FindSkystoneBlue extends MethodLibrary {
     private void deliverBlock(double dist) {
         drive(5,0.5);
         absoluteTurn(-90);
-        reverse(dist,0.5);
+        reverse(dist,0.8);
         //parks on line
-        drive(20,0.5);
+        drive(20,0.7);
     }
 
     private boolean isBlack(int alpha) {

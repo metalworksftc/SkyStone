@@ -23,9 +23,9 @@ public class MoveBlueFoundationBridgeSide extends MethodLibrary {
 
         //drive to foundation
 
-        drive(24,driveSpeed);
+        drive(23,driveSpeed);
         absoluteTurn(90);
-        drive(31,driveSpeed);
+        drive(28,driveSpeed);
         absoluteTurn(0);
         drive(26-robotLength,driveSpeed);
         //attach to foundation
@@ -40,11 +40,11 @@ public class MoveBlueFoundationBridgeSide extends MethodLibrary {
         engageHook();
         //parking
         absoluteTurn(90);
-        reverse(27,driveSpeed);
+        reverse(38,driveSpeed);
         absoluteTurn(0);
         drive(27,0.5);
         absoluteTurn(90);
-        reverse(26,driveSpeed);
+        reverse(15,driveSpeed);
 
     }
 

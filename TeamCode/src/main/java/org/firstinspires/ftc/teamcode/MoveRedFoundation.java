@@ -20,7 +20,7 @@ public class MoveRedFoundation extends MethodLibrary {
 
         //drive to foundation
         engageHook();
-        drive(24,driveSpeed);
+        drive(23,driveSpeed);
         absoluteTurn(-90);
         drive(31,driveSpeed);
         absoluteTurn(0);
