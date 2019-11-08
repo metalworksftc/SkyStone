@@ -15,7 +15,7 @@ public class MoveBlueFoundationHalf extends MethodLibrary {
         //Put your autonomous code after this line
 
 
-        double driveSpeed=0.5;
+        double driveSpeed=0.8;
         double robotLength=17.5;
         double dragSpeed=0.8;
 

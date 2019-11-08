@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "MoveRedFoundation")
+@Autonomous(name = "MoveRedFoundationBridgeSide")
 //@Disabled
 public class MoveRedFoundationBridgeSide extends MethodLibrary {
 
@@ -14,7 +14,7 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
         waitForStart();
         //Put your autonomous code after this line
 
-        double driveSpeed=0.5;
+        double driveSpeed=0.8;
         double robotLength=17.5;
         double dragSpeed=0.8;
 
