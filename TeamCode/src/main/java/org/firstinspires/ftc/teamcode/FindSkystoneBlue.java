@@ -15,7 +15,7 @@ public class FindSkystoneBlue extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
-        drive(29, 0.6);
+        drive(27.5, 0.6);
         tailServo.setPosition(1);
         waitSec(3);
         int block1 = cs.alpha();
@@ -66,7 +66,7 @@ public class FindSkystoneBlue extends MethodLibrary {
 
     private void pickUpBlock() {
         raise(4.5);
-        extend(48);
+        extend(53);
         lower(4.5);
         grab();
     }

@@ -232,7 +232,7 @@ public abstract class MethodLibrary extends LinearOpMode {
      * @param target the angle (in degrees) to turn to, between -180 and 180 inclusive
      */
     protected void absoluteTurn(float target) {
-
+        //turn left
         float distLeft = target - getHeading();
         if (distLeft < 0){
             distLeft += 360;
@@ -246,11 +246,11 @@ public abstract class MethodLibrary extends LinearOpMode {
                 if (distLeft < 0){
                     distLeft += 360;
                 }
-                double power = 0.01* (distLeft + 20);
-                if (power > 0.8) {
-                    power = 0.8;
-                }
-
+//                double power = 0.01* (distLeft + 20);
+////                if (power > 0.6) {
+////                    power = 0.6;
+////                }
+                double power = 0.7;
                 left.setPower(-power);
                 right.setPower(power);
             }
@@ -262,10 +262,11 @@ public abstract class MethodLibrary extends LinearOpMode {
                     distLeft += 360;
                 }
                 distRight = 360 - distLeft;
-                double power = 0.01* (distRight + 20);
-                if (power > 0.6) {
-                    power = 0.6;
-                }
+//                double power = 0.01* (distRight + 20);
+//                if (power > 0.6) {
+//                    power = 0.6;
+//                }
+                double power = 0.7;
                 left.setPower(power);
                 right.setPower(-power);
             }

@@ -20,7 +20,7 @@ public class MoveBlueFoundationHalf extends MethodLibrary {
         double dragSpeed=0.8;
 
         //drive to foundation
-        engageHook();
+        tailServo.setPosition(0.6);
         drive(23,driveSpeed);
         absoluteTurn(90);
         drive(28,driveSpeed);
@@ -28,7 +28,7 @@ public class MoveBlueFoundationHalf extends MethodLibrary {
         drive(26-robotLength,driveSpeed);
         //attach to foundation
         disengageHook();
-        drive(3.5,driveSpeed);
+        drive(1,driveSpeed/2);
         engageHook();
         //drive to building zone
         reverse(58-robotLength,dragSpeed);
@@ -36,9 +36,6 @@ public class MoveBlueFoundationHalf extends MethodLibrary {
         disengageHook();
         reverse(.5,driveSpeed);
         engageHook();
-
-
-
     }
 
 }

@@ -19,29 +19,29 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
         double dragSpeed=0.8;
 
         //drive to foundation
-        engageHook();
-        drive(23,driveSpeed);
+        tailServo.setPosition(0.6);
+        drive(20,driveSpeed);
         absoluteTurn(-90);
-        drive(31,driveSpeed);
+        drive(25,driveSpeed);
         absoluteTurn(0);
-        drive(26-robotLength,driveSpeed);
+        drive(24-robotLength,driveSpeed);
         //attach to foundation
         disengageHook();
-        drive(3.5,driveSpeed);
+        drive(3,driveSpeed/2);
         engageHook();
         //drive to building zone
-        reverse(58-robotLength,dragSpeed);
+        reverse(57-robotLength,dragSpeed);
         //detach foundation
         disengageHook();
         reverse(.5,driveSpeed);
         engageHook();
         //parking
         absoluteTurn(-90);
-        reverse(38,driveSpeed);
+        reverse(29,driveSpeed);
         absoluteTurn(0);
-        drive(27,0.5);
+        drive(20,0.5);
         absoluteTurn(-90);
-        reverse(15,driveSpeed);
+        reverse(10,driveSpeed);
 
     }
 
