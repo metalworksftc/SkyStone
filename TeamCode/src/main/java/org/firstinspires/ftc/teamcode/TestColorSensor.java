@@ -17,11 +17,16 @@ public class TestColorSensor extends MethodLibrary {
 
         while (true) {
             String message = cs.alpha() + " " + cs.green() + " " + cs.blue() + " " + cs.red();
+//            String message = String.valueOf(testsensor.getLightDetected());
             telemetry.addLine(message);
             telemetry.update();
-            cs.alpha();
+//            cs.alpha();
+            testsensor.enableLed(true);
+            testsensor.getLightDetected();
 
         }
+
+
 
     }
 

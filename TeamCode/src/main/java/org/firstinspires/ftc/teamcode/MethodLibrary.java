@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -31,8 +32,8 @@ public abstract class MethodLibrary extends LinearOpMode {
     //color sensor
     protected ColorSensor cs;
    // Servo
-    protected Servo tailServo;
-    protected Servo stoneServo;
+    protected Servo tailServo, stoneServo;
+    protected OpticalDistanceSensor testsensor;
 
 
 
@@ -72,6 +73,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
         horizontal = hardwareMap.dcMotor.get("bm");
+//        testsensor = hardwareMap.opticalDistanceSensor.get("tds");
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
         horizontal.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -152,7 +154,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void extend(double inches) {
 
-        final double COUNTS_PER_INCH = 100.0/7.0;
+        final double COUNTS_PER_INCH = 1000.0/7.0;
 
         int target = horizontal.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -171,7 +173,7 @@ public abstract class MethodLibrary extends LinearOpMode {
      * Drives forwards only
      * @param inches the number of inches to drive
      */
-    protected void retract(double inches) {
+    protected void retract (double inches) {
 
         final double COUNTS_PER_INCH = -1000.0/7.0;
 
