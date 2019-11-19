@@ -62,17 +62,6 @@ public class FindSkystoneRed extends MethodLibrary {
         deliverBlock(45,"r" );
     }
 
-    public void deliverBlock(double dist) {
-        drive(5,0.5);
-        absoluteTurn(90);
-        reverse(dist,0.8);
-        //parks on line
-        drive(20,0.7);
-    }
-
-
-
-
     private boolean isBlack(int alpha) {
         return alpha < 100;
     }

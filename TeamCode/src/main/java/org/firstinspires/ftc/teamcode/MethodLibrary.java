@@ -305,13 +305,6 @@ public abstract class MethodLibrary extends LinearOpMode {
         grab();
     }
 
-    public void deliverBlock(double dist) {
-        drive(5,0.5);
-        absoluteTurn(90);
-        reverse(dist,0.8);
-        //parks on line
-        drive(20,0.7);
-    }
 
     public void deliverBlock(double dist, String dir) {
         drive(5,0.5);
