@@ -13,7 +13,7 @@ public class FindSkystoneRed extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
-        drive(26.5, 0.6);
+        drive(27.5, 0.6);
         tailServo.setPosition(1);
         waitSec(3);
         int block1 = cs.alpha();
@@ -43,40 +43,35 @@ public class FindSkystoneRed extends MethodLibrary {
         drive(3,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(70);
+        deliverBlock(70,"r");
     }
 
     private void goToStone2() {
         reverse(4,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(65);
+        deliverBlock(65,"r");
     }
 
     private void goToStone1() {
         reverse(4,0.5);
         absoluteTurn(-90);
-        drive(4,0.5);
+        drive(7,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(45);
+        deliverBlock(45,"r" );
     }
 
-    private void pickUpBlock() {
-//        reverse(3,0.5);
-        raise(4.5);
-        extend(5.56);
-        lower(4.5);
-        grab();
-    }
-
-    private void deliverBlock(double dist) {
+    public void deliverBlock(double dist) {
         drive(5,0.5);
         absoluteTurn(90);
         reverse(dist,0.8);
         //parks on line
         drive(20,0.7);
     }
+
+
+
 
     private boolean isBlack(int alpha) {
         return alpha < 100;

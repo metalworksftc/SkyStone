@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-import org.firstinspires.ftc.robotcore.external.Telemetry;
-
 @Autonomous(name = "FindSkystoneBlue")
 //@Disabled
 public class FindSkystoneBlue extends MethodLibrary {
@@ -45,39 +43,33 @@ public class FindSkystoneBlue extends MethodLibrary {
         drive(3,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(70);
+        deliverBlock(70,"l");
     }
 
     private void goToStone2() {
         reverse(4,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(65);
+        deliverBlock(65,"l");
     }
 
     private void goToStone1() {
         reverse(4,0.5);
-        absoluteTurn(90);
+        absoluteTurn(-90);
         drive(7,0.5);
         absoluteTurn(180);
         pickUpBlock();
-        deliverBlock(45);
+        deliverBlock(45, "l");
     }
 
-    private void pickUpBlock() {
+    public void pickUpBlock() {
         raise(4.5);
-        extend(53);
+        extend(7.5);
         lower(4.5);
         grab();
     }
 
-    private void deliverBlock(double dist) {
-        drive(5,0.5);
-        absoluteTurn(-90);
-        reverse(dist,0.8);
-        //parks on line
-        drive(20,0.7);
-    }
+
 
     private boolean isBlack(int alpha) {
         return alpha < 100;

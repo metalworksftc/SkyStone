@@ -296,4 +296,30 @@ public abstract class MethodLibrary extends LinearOpMode {
         stoneServo.setPosition(0.5);
         waitSec(1.5);
     }
+
+
+    public void pickUpBlock() {
+        raise(4.5);
+        extend(7.5);
+        lower(4.5);
+        grab();
+    }
+
+    public void deliverBlock(double dist) {
+        drive(5,0.5);
+        absoluteTurn(90);
+        reverse(dist,0.8);
+        //parks on line
+        drive(20,0.7);
+    }
+
+    public void deliverBlock(double dist, String dir) {
+        drive(5,0.5);
+        if (dir ==  "l") absoluteTurn(-90);
+        if (dir == "r") absoluteTurn(90);
+        reverse(dist,0.8);
+        //parks on line
+        drive(20,0.7);
+    }
+
 }
