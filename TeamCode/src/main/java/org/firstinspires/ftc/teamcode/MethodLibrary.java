@@ -23,7 +23,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     // Motors
     //protected DcMotor leftFrontM, leftBackM, rightFrontM, rightBackM;
-    protected DcMotor left, right, horizontal, vertical;
+    protected DcMotor left, right, horizontal, vertical, strafeMotor;
 
     // Gyro Sensor instance variables
     protected BNO055IMU imu;
@@ -73,6 +73,8 @@ public abstract class MethodLibrary extends LinearOpMode {
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
         horizontal = hardwareMap.dcMotor.get("bm");
+        strafeMotor = hardwareMap.dcMotor.get("sm");
+
 //        testsensor = hardwareMap.opticalDistanceSensor.get("tds");
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -226,9 +228,50 @@ public abstract class MethodLibrary extends LinearOpMode {
         }
 
 
+
+
         vertical.setPower(0);
         waitSec(0.5);
     }
+
+    protected void strafeRight(double inches, double power) {
+
+        final double COUNTS_PER_INCH = 1000.0/13.50;
+
+        int target = strafeMotor.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        strafeMotor.setPower(power);
+
+        while (strafeMotor.getCurrentPosition() < target) {
+            telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
+            telemetry.update();
+        }
+
+        strafeMotor.setPower(0);
+        waitSec(.5);
+    }
+
+    protected void strafeLeft(double inches, double power) {
+
+        final double COUNTS_PER_INCH = -1000.0/13.50;
+
+        power = -power;
+
+        int target = strafeMotor.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        strafeMotor.setPower(power);
+
+        while (strafeMotor.getCurrentPosition() > target) {
+            telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
+            telemetry.update();
+        }
+
+
+        strafeMotor.setPower(0);
+        waitSec(0.5);
+    }
+
+
     /**
      * You have to write this!
      * @param target the angle (in degrees) to turn to, between -180 and 180 inclusive
