@@ -31,11 +31,11 @@ public class TankDrive extends OpMode {
     public void loop() {
         rm.setPower(- gamepad1.left_stick_y);
         lm.setPower(- gamepad1.right_stick_y);
+
         // TODO
         //What if both triggers are pressed?
 
-        strafeMotor.setPower(gamepad1.right_trigger);
-        strafeMotor.setPower( - gamepad1.left_trigger);
+        strafeMotor.setPower(gamepad1.right_trigger - gamepad1.left_trigger);
 
 //        Slownessing D pad controls, salt is good
         strafeMotor.setPower(decodeDPad(gamepad1.dpad_right));
@@ -43,13 +43,13 @@ public class TankDrive extends OpMode {
         lm.setPower(decodeDPad(gamepad1.dpad_up));
         rm.setPower(decodeDPad(gamepad1.dpad_up));
         lm.setPower( - decodeDPad(gamepad1.dpad_down));
-        rm.setPower( - decodeDPad(gamepad1.dpad_down));
+        rm.setPower(decodeDPad(gamepad1.dpad_down));
 
         tailServo.setPosition(gamepad2.left_trigger * 0.4 + 0.6);
         stoneServo.setPosition(gamepad2.right_trigger * -0.2 + 1);
+
         vertical.setPower( - gamepad2.left_stick_y);
         horizontal.setPower(gamepad2.right_stick_y);
-
 
     }
 
