@@ -14,10 +14,10 @@ public class FindSkystoneBlue extends MethodLibrary {
         waitForStart();
         //Put your autonomous code after this line
         drive(27.5, 0.6);
-        tailServo.setPosition(1);
+        leftTailServo.setPosition(1);
+        rightTailServo.setPosition(1);
         waitSec(3);
         int block1 = cs.alpha();
-        tailServo.setPosition(0);
         waitSec(3);
         int block3 = cs.alpha();
         int skystone;
