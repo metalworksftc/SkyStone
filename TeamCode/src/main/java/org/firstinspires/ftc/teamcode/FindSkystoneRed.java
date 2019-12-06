@@ -36,25 +36,19 @@ public class FindSkystoneRed extends MethodLibrary {
     }
 
     private void goToStone3() {
-        reverse(4,0.5);
-        absoluteTurn(90);
-        drive(3,0.5);
-        absoluteTurn(180);
+        strafeRight(12,0.5);
         pickUpBlock();
         deliverBlock(70,"r");
     }
 
     private void goToStone2() {
-        reverse(4,0.5);
-        absoluteTurn(180);
+        strafeRight(3,0.5);
         pickUpBlock();
         deliverBlock(65,"r");
     }
 
     private void goToStone1() {
-        reverse(4,0.5);
-        absoluteTurn(-90);
-        drive(7,0.5);
+        strafeLeft(3,0.5);
         absoluteTurn(180);
         pickUpBlock();
         deliverBlock(45,"r" );

@@ -323,8 +323,8 @@ public abstract class MethodLibrary extends LinearOpMode {
     }
 
     protected void engageHook() {
-        rightTailServo.setPosition(0.6);
-        leftTailServo.setPosition(-0.6);
+        rightTailServo.setPosition(0);
+        leftTailServo.setPosition(0);
         waitSec(1);
     }
 
