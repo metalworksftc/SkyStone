@@ -22,9 +22,7 @@ public class MoveBlueFoundation extends MethodLibrary {
         leftTailServo.setPosition(0.6);
         rightTailServo.setPosition(0.6);
         drive(20,driveSpeed);
-        absoluteTurn(90);
-        drive(25,driveSpeed);
-        absoluteTurn(0);
+        strafeLeft(25,0.8);
         drive(24-robotLength,driveSpeed);
         //attach to foundation
         disengageHook();
