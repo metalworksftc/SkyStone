@@ -21,10 +21,10 @@ public class MoveRedFoundation extends MethodLibrary {
         //drive to foundation
         tailServo.setPosition(0.6);
         drive(20,driveSpeed);
-        absoluteTurn(-90);
+        absoluteTurn(-75);
         drive(25,driveSpeed);
-        absoluteTurn(0);
-        drive(24-robotLength,driveSpeed);
+        absoluteTurn(-15);
+        drive(37-robotLength,driveSpeed);
         //attach to foundation
         disengageHook();
         drive(3,driveSpeed/2);
@@ -36,8 +36,7 @@ public class MoveRedFoundation extends MethodLibrary {
         reverse(.5,driveSpeed);
         engageHook();
         //parking
-        absoluteTurn(-90);
-        reverse(53,driveSpeed);
+        strafeRight(53,0.8);
 
 
     }

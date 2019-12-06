@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "TestStrafeWheel")
+@Autonomous(name = "CalibrateForward")
 //@Disabled
-public class TestStrafeWheel extends MethodLibrary {
+public class CalibrateForward extends MethodLibrary {
 
     @Override
     public void runOpMode() {
@@ -12,9 +12,9 @@ public class TestStrafeWheel extends MethodLibrary {
         hardwareMap();
 
         waitForStart();
-//        drive(30,0.5);
-//        strafeLeft(10,0.5);
-        strafeRight(10,1);
+        drive(1000, 1);
+
     }
 
 }
+

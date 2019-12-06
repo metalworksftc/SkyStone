@@ -16,6 +16,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public abstract class MethodLibrary extends LinearOpMode {
+    protected static final double DRIVE_CALIBRATION = 19;
+    protected static final double STRAFE_CALIBRATION = 61.6;
 
     /*
      * Instance Variables
@@ -110,7 +112,7 @@ public abstract class MethodLibrary extends LinearOpMode {
      */
     protected void drive(double inches, double power) {
 
-        final double COUNTS_PER_INCH = 1000.0/13.50;
+        final double COUNTS_PER_INCH = 1000.0/DRIVE_CALIBRATION;
 
         int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -135,7 +137,7 @@ public abstract class MethodLibrary extends LinearOpMode {
      */
     protected void reverse(double inches, double power) {
 
-        final double COUNTS_PER_INCH = -1000.0/13.50;
+        final double COUNTS_PER_INCH = -1000 / DRIVE_CALIBRATION;
 
         power = -power;
 
@@ -237,7 +239,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void strafeRight(double inches, double power) {
 
-        final double COUNTS_PER_INCH = 1000.0/13.50;
+        final double COUNTS_PER_INCH = 3000.0/STRAFE_CALIBRATION;
 
         int target = strafeMotor.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -254,7 +256,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void strafeLeft(double inches, double power) {
 
-        final double COUNTS_PER_INCH = -1000.0/13.50;
+        final double COUNTS_PER_INCH = -3000.0/STRAFE_CALIBRATION;
 
         power = -power;
 

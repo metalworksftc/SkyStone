@@ -30,14 +30,14 @@
     https://www.cyberlink.com/products/youcam/features_en_US.html
 
   Programs that can process acquired images to determine camera calibration settings include:
-    https://www.3dflow.net/3df-zephyr-free/ (see "Utilities/Images/Launch Camera Calibration" therein)
+    https://www.3dflow.net/3df-zephyr-free/ (see "Utilities/Images/Launch Camera CalibrateStrafe" therein)
     http://graphics.cs.msu.ru/en/node/909
   Note that the type of images that must be acquired in order to calibrate is specific to the
   calibration software used.
 
   The required contents are illustrated here by example. Note that for the attribute names, both the
   camelCase or the underscore_variations are supported; they are equivalent. The attributes for
-  each Calibration are as follows:
+  each CalibrateStrafe are as follows:
 
     size (int pair): space separated camera resolution (width, height).
     focalLength (float pair): space separated focal length value.
@@ -56,7 +56,7 @@
 
     <!-- Microsoft Lifecam HD 3000 v1, Calibrated by PTC using unknown tooling -->
     <!-- <Camera vid="Microsoft" pid="0x0779">
-        <Calibration
+        <CalibrateStrafe
             size="640 480"
             focalLength="678.154f, 678.17f"
             principalPoint="318.135f, 228.374f"
@@ -68,7 +68,7 @@
 
     <!-- Microsoft Lifecam HD 3000 v2, Calibrated by PTC using unknown tooling -->
     <!-- <Camera vid="Microsoft" pid="0x0810">
-        <Calibration
+        <CalibrateStrafe
             size="640 480"
             focalLength="678.154f, 678.17f"
             principalPoint="318.135f, 228.374f"
@@ -80,14 +80,14 @@
 
     <!-- Logitech HD Webcam C310, Calibrated by by Robert Atkinson, 2018.05.30 using 3DF Zephyr -->
     <!-- <Camera vid="Logitech" pid="0x081B">
-        <Calibration
+        <CalibrateStrafe
             size="640 480"
             focalLength="821.993f, 821.993f"
             principalPoint="330.489f, 248.997f"
             distortionCoefficients="-0.018522, 1.03979, 0, 0, -3.3171, 0, 0, 0"
             />
 
-        <Calibration
+        <CalibrateStrafe
             size="640 360"
             focalLength="715.307f, 715.307f"
             principalPoint="319.759f, 188.917f"
@@ -100,42 +100,42 @@
     <!-- Logitech HD Pro Webcam C920, Calibrated by Robert Atkinson, 2018.05.30 using 3DF Zephyr -->
     <!-- <Camera vid="Logitech" pid="0x082D">
 
-        <Calibration
+        <CalibrateStrafe
             size="640 480"
             focalLength="622.001f, 622.001f"
             principalPoint="319.803f, 241.251f"
             distortionCoefficients="0.1208, -0.261599, 0, 0, 0.10308, 0, 0, 0"
             />
 
-        <Calibration
+        <CalibrateStrafe
             size="800 600"
             focalLength="775.79f, 775.79f"
             principalPoint="400.898f, 300.79f"
             distortionCoefficients="0.112507, -0.272067, 0, 0, 0.15775, 0, 0, 0"
             />
 
-        <Calibration
+        <CalibrateStrafe
             size="640 360"
             focalLength="463.566f, 463.566f"
             principalPoint="316.402f, 176.412f"
             distortionCoefficients="0.111626 , -0.255626, 0, 0, 0.107992, 0, 0, 0"
             />
 
-        <Calibration
+        <CalibrateStrafe
             size="1920, 1080"
             focalLength="1385.92f , 1385.92f"
             principalPoint="951.982f , 534.084f"
             distortionCoefficients="0.117627, -0.248549, 0, 0, 0.107441, 0, 0, 0"
             />
 
-        <Calibration
+        <CalibrateStrafe
             size="800, 448"
             focalLength="578.272f , 578.272f"
             principalPoint="402.145f , 221.506f"
             distortionCoefficients="0.12175, -0.251652 , 0, 0, 0.112142, 0, 0, 0"
             />
 
-        <Calibration
+        <CalibrateStrafe
             size="864, 480"
             focalLength="626.909f , 626.909f"
             principalPoint="426.007f , 236.834f"
@@ -148,7 +148,7 @@
 
     <!-- Logitech HD Webcam C270, Calibrated by Noah Andrews, 2019.03.13 using 3DF Zephyr -->
     <!--<Camera vid="Logitech" pid="0x0825">
-        <Calibration
+        <CalibrateStrafe
             size="640 480"
             focalLength="822.317f, 822.317f"
             principalPoint="319.495f, 242.502f"
