@@ -31,10 +31,10 @@ public abstract class MethodLibrary extends LinearOpMode {
     protected BNO055IMU imu;
     protected int relativeLayoutId;
     protected Orientation angles;
-    //color sensor
-    protected ColorSensor cs;
+    //sensors
+    protected ColorSensor leftColorSensor, rightColorSensor;
    // Servo
-    protected Servo rightTailServo, leftTailServo, stoneServo, tsilServos;
+    protected Servo rightTailServo, leftTailServo, stoneServo;
     protected OpticalDistanceSensor testsensor;
 
 
@@ -77,6 +77,8 @@ public abstract class MethodLibrary extends LinearOpMode {
         vertical =  hardwareMap.dcMotor.get("tm");
         horizontal = hardwareMap.dcMotor.get("bm");
         strafeMotor = hardwareMap.dcMotor.get("sm");
+        leftColorSensor = hardwareMap.colorSensor.get("lcs");
+        rightColorSensor = hardwareMap.colorSensor.get("rcs");
 
 //        testsensor = hardwareMap.opticalDistanceSensor.get("tds");
 
@@ -98,10 +100,6 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         telemetry.addLine("Status: Initialized");
         telemetry.update();
-
-        cs = hardwareMap.colorSensor.get("cs");
-
-
 
     }
 

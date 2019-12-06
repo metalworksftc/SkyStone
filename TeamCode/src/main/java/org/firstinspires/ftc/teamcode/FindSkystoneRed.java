@@ -14,24 +14,22 @@ public class FindSkystoneRed extends MethodLibrary {
         waitForStart();
         //Put your autonomous code after this line
         drive(27.5, 0.6);
-        tailServo.setPosition(1);
         waitSec(3);
-        int block1 = cs.alpha();
-        tailServo.setPosition(0);
+        int block1 = rightColorSensor.alpha();
         waitSec(3);
-        int block3 = cs.alpha();
+        int block2 = leftColorSensor.alpha();
         int skystone;
         if (isBlack(block1)) {
             skystone = 1;
             goToStone1();
         }
-        else if (isBlack(block3)) {
-            skystone = 3;
-            goToStone3();
-        }
-        else {
+        else if (isBlack(block2)) {
             skystone = 2;
             goToStone2();
+        }
+        else {
+            skystone = 3;
+            goToStone3();
         }
         telemetry.addLine(String.valueOf(skystone));
         telemetry.update();
@@ -61,6 +59,15 @@ public class FindSkystoneRed extends MethodLibrary {
         pickUpBlock();
         deliverBlock(45,"r" );
     }
+
+    public void pickUpBlock() {
+        raise(4.5);
+        extend(7.5);
+        lower(4.5);
+        grab();
+    }
+
+
 
     private boolean isBlack(int alpha) {
         return alpha < 100;

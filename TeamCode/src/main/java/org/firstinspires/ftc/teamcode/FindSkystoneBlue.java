@@ -17,21 +17,21 @@ public class FindSkystoneBlue extends MethodLibrary {
         leftTailServo.setPosition(1);
         rightTailServo.setPosition(1);
         waitSec(3);
-        int block1 = cs.alpha();
+        int block1 = rightColorSensor.alpha();
         waitSec(3);
-        int block3 = cs.alpha();
+        int block2 = leftColorSensor.alpha();
         int skystone;
         if (isBlack(block1)) {
             skystone = 1;
             goToStone1();
         }
-        else if (isBlack(block3)) {
-            skystone = 3;
-            goToStone3();
-        }
-        else {
+        else if (isBlack(block2)) {
             skystone = 2;
             goToStone2();
+        }
+        else {
+            skystone = 3;
+            goToStone3();
         }
         telemetry.addLine(String.valueOf(skystone));
         telemetry.update();

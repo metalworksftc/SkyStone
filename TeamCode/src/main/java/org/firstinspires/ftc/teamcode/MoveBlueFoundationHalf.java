@@ -20,7 +20,8 @@ public class MoveBlueFoundationHalf extends MethodLibrary {
         double dragSpeed=0.8;
 
         //drive to foundation
-        tailServo.setPosition(0.6);
+        leftTailServo.setPosition(0.6);
+        rightTailServo.setPosition(0.6);
         drive(23,driveSpeed);
         absoluteTurn(90);
         drive(28,driveSpeed);
