@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "MoveRedFoundation")
+@Autonomous//(name = "TestTurnRoutine")
 //@Disabled
 public class TestTurnRoutine extends MethodLibrary {
 
@@ -21,28 +21,9 @@ public class TestTurnRoutine extends MethodLibrary {
 
         //drive to foundation
 
-        leftTailServo.setPosition(0.6);
-        rightTailServo.setPosition(0.6);
-
-        drive(20,driveSpeedFast);
-        absoluteTurn(-75);
-        drive(25,driveSpeedSlow);
-        absoluteTurn(-15);
-        drive(37-robotLength,driveSpeedFast);
-        //attach to foundation
-        disengageHook();
-        drive(3,driveSpeedSlow/2);
-        engageHook();
-        //drive to building zone
-        reverse(57-robotLength,dragSpeed);
-        //detach foundation
-        disengageHook();
-        reverse(.5,driveSpeedFast);
-        engageHook();
-        //parking
-        strafeRight(53,0.8);
-
-
+       absoluteTurnPower(90,0.4);
+       waitSec(5);
+       absoluteTurnPower(0,0.4);
     }
 
 }

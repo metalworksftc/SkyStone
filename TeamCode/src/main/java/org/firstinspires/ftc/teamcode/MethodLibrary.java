@@ -71,8 +71,8 @@ public abstract class MethodLibrary extends LinearOpMode {
         left = hardwareMap.dcMotor.get("lm");
         right = hardwareMap.dcMotor.get("rm");
         vertical = hardwareMap.dcMotor.get("bm");
-        rightTailServo = hardwareMap.servo.get("ts");
-        leftTailServo = hardwareMap.servo.get("ts");
+        rightTailServo = hardwareMap.servo.get("rts");
+        leftTailServo = hardwareMap.servo.get("lts");
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
         horizontal = hardwareMap.dcMotor.get("bm");
@@ -278,6 +278,9 @@ public abstract class MethodLibrary extends LinearOpMode {
      * @param target the angle (in degrees) to turn to, between -180 and 180 inclusive
      */
     protected void absoluteTurn(float target) {
+        absoluteTurnPower(target, 0.7);
+    }
+    protected void absoluteTurnPower(float target, double power) {
         //turn left
         float distLeft = target - getHeading();
         if (distLeft < 0){
@@ -296,7 +299,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 ////                if (power > 0.6) {
 ////                    power = 0.6;
 ////                }
-                double power = 0.7;
+//                double power = 0.7;
                 left.setPower(-power);
                 right.setPower(power);
             }
@@ -312,7 +315,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 //                if (power > 0.6) {
 //                    power = 0.6;
 //                }
-                double power = 0.7;
+//                double power = 0.7;
                 left.setPower(power);
                 right.setPower(-power);
             }
@@ -324,13 +327,13 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void engageHook() {
         rightTailServo.setPosition(0);
-        leftTailServo.setPosition(0);
+        leftTailServo.setPosition(1);
         waitSec(1);
     }
 
     protected void disengageHook() {
         rightTailServo.setPosition(1);
-        leftTailServo.setPosition(-1);
+        leftTailServo.setPosition(0);
         waitSec(1);
     }
 
