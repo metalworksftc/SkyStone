@@ -38,13 +38,13 @@ public class TankDrive extends OpMode {
 
         strafeMotor.setPower(gamepad1.right_trigger - gamepad1.left_trigger);
 
-//        Slownessing D pad controls, salt is good
+//        Slownessing D pad controls    z
 //        strafeMotor.setPower(decodeDPad(gamepad1.dpad_right));
 //        strafeMotor.setPower( - decodeDPad(gamepad1.dpad_left));
-        lm.setPower(decodeDPad(gamepad1.dpad_up));
-        rm.setPower(decodeDPad(gamepad1.dpad_up));
-        lm.setPower( - decodeDPad(gamepad1.dpad_down));
-        rm.setPower(decodeDPad(gamepad1.dpad_down));
+//        lm.setPower(decodeDPad(gamepad1.dpad_up));
+//        rm.setPower(decodeDPad(gamepad1.dpad_up));
+//        lm.setPower( - decodeDPad(gamepad1.dpad_down));
+//        rm.setPower(decodeDPad(gamepad1.dpad_down));
 
         rightTailServo.setPosition(gamepad2.left_trigger);
         leftTailServo.setPosition(gamepad2.left_trigger * -1 + 1);
