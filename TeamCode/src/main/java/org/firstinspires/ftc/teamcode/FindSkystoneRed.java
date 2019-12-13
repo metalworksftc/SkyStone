@@ -16,8 +16,8 @@ public class FindSkystoneRed extends MethodLibrary {
         drive(27.5, 0.6);
         waitSec(3);
         int block1 = rightColorSensor.alpha();
-        waitSec(3);
         int block2 = leftColorSensor.alpha();
+
         int skystone;
         if (isBlack(block1)) {
             skystone = 1;
