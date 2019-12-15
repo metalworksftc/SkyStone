@@ -75,6 +75,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         leftTailServo = hardwareMap.servo.get("lts");
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
+        vertical.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         horizontal = hardwareMap.dcMotor.get("bm");
         strafeMotor = hardwareMap.dcMotor.get("sm");
         leftColorSensor = hardwareMap.colorSensor.get("lcs");
@@ -83,8 +84,8 @@ public abstract class MethodLibrary extends LinearOpMode {
 //        testsensor = hardwareMap.opticalDistanceSensor.get("tds");
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
-        horizontal.setDirection(DcMotorSimple.Direction.REVERSE);
 
+        horizontal.setDirection(DcMotorSimple.Direction.REVERSE);
         BNO055IMU.Parameters parameters2 = new BNO055IMU.Parameters();
         parameters2.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
         parameters2.accelUnit           = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
@@ -222,6 +223,8 @@ public abstract class MethodLibrary extends LinearOpMode {
         int target = vertical.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
         vertical.setPower(-0.5);
+
+        final DcMotor.ZeroPowerBehavior brake = DcMotor.ZeroPowerBehavior.BRAKE;
 
         while (vertical.getCurrentPosition() > target) {
             telemetry.addLine("Driving: " + vertical.getCurrentPosition() + " of " + target + " counts");
