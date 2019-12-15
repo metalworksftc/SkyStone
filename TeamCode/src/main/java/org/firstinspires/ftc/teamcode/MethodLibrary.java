@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public abstract class MethodLibrary extends LinearOpMode {
-    protected static final double DRIVE_CALIBRATION = 19;
+    protected static final double DRIVE_CALIBRATION = 15;
     protected static final double STRAFE_CALIBRATION = 61.6;
 
     /*
@@ -357,8 +357,8 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     public void deliverBlock(double dist, String dir) {
         drive(5,0.5);
-        if (dir ==  "l") absoluteTurn(-90);
-        if (dir == "r") absoluteTurn(90);
+        if (dir ==  "r") absoluteTurn(-70);
+        if (dir == "l") absoluteTurn(90);
         reverse(dist,0.8);
         //parks on line
         drive(20,0.7);
