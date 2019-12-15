@@ -12,7 +12,7 @@ public class CalibrateForward extends MethodLibrary {
         hardwareMap();
 
         waitForStart();
-        drive(1000, 1);
+        drive(1000, 0.6);
 
     }
 
