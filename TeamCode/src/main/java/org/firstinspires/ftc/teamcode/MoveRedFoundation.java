@@ -22,20 +22,20 @@ public class MoveRedFoundation extends MethodLibrary {
         disengageHook();
         drive(20,driveSpeed);
         absoluteTurnPower(-90,0.3);
-        drive(45,driveSpeed);
+        drive(34,driveSpeed);
         absoluteTurnPower(0,0.3);
-        drive(44-robotLength,driveSpeed);
+        drive(21,driveSpeed);
         //attach to foundation
 //        disengageHook();
 //        drive(3,driveSpeed/2);
         engageHook();
         //drive to building zone
-        reverse(67-robotLength,dragSpeed);
+        reverse(40,dragSpeed);
         //detach foundation
         disengageHook();
         //parking
         absoluteTurnPower(0,0.3);
-        strafeRight(46,0.5);
+        strafeRight(46,0.6);
 
 
     }

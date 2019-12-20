@@ -15,7 +15,8 @@ public class TestColorSensor extends MethodLibrary {
         //Put your autonomous code after this line
         while (true){
             telemetry.addLine("left " + leftColorSensor.red() + " " + leftColorSensor.green() + " " + leftColorSensor.blue() + " " + leftColorSensor.alpha());
-//            telemetry.addLine("right " + rightColorSensor.red() + " " + rightColorSensor.green() + " " + rightColorSensor.blue() + " " + rightColorSensor.alpha());
+            waitSec(2);
+            telemetry.addLine("right " + rightColorSensor.red() + " " + rightColorSensor.green() + " " + rightColorSensor.blue() + " " + rightColorSensor.alpha());
             telemetry.update();
         }
     }

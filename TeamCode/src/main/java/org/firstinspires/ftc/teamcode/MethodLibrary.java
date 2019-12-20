@@ -35,7 +35,6 @@ public abstract class MethodLibrary extends LinearOpMode {
     protected ColorSensor leftColorSensor, rightColorSensor;
    // Servo
     protected Servo rightTailServo, leftTailServo, stoneServo;
-    protected OpticalDistanceSensor testsensor;
 
 
 
@@ -50,8 +49,8 @@ public abstract class MethodLibrary extends LinearOpMode {
         time.startTime();
 
         while(time.seconds() < seconds && opModeIsActive()) {
-            telemetry.addLine("Waiting for " + (seconds - time.seconds()) + " seconds");
-            telemetry.update();
+//            telemetry.addLine("Waiting for " + (seconds - time.seconds()) + " seconds");
+//            telemetry.update();
         }
 
     }
@@ -81,7 +80,6 @@ public abstract class MethodLibrary extends LinearOpMode {
         leftColorSensor = hardwareMap.colorSensor.get("lcs");
         rightColorSensor = hardwareMap.colorSensor.get("rcs");
 
-//        testsensor = hardwareMap.opticalDistanceSensor.get("tds");
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
 
@@ -360,11 +358,11 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     public void deliverBlock(double dist, String dir) {
         drive(5,0.5);
-        if (dir ==  "r") absoluteTurn(-70);
-        if (dir == "l") absoluteTurn(90);
+        if (dir ==  "r") absoluteTurnPower(-90,0.3);
+        if (dir == "l") absoluteTurnPower(90,0.3);
         reverse(dist,0.8);
         //parks on line
-        drive(20,0.7);
+        drive(20,0.6);
     }
 
 }
