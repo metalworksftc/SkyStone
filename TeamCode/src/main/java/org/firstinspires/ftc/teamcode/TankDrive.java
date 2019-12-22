@@ -30,10 +30,7 @@ public class TankDrive extends OpMode {
 
     @Override
     public void loop() {
-
-
-        // TODO
-//         Gamepad1
+//        Gamepad1
 
         rm.setPower(- gamepad1.left_stick_y);
         lm.setPower(- gamepad1.right_stick_y);
