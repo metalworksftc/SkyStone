@@ -33,7 +33,7 @@ public class TankDrive extends OpMode {
 
 
         // TODO
-        //        Gamepad1
+//         Gamepad1
 
         rm.setPower(- gamepad1.left_stick_y);
         lm.setPower(- gamepad1.right_stick_y);
