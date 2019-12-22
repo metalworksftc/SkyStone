@@ -62,8 +62,7 @@ public class FindSkystoneRed extends MethodLibrary {
         lower(5);
         grab();
     }
-
-
+//    Find Skystone Red
 
     private boolean isBlack(int alpha) {
         return alpha < 100;

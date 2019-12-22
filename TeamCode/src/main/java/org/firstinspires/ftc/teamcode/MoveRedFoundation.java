@@ -37,7 +37,7 @@ public class MoveRedFoundation extends MethodLibrary {
         absoluteTurnPower(0,0.3);
         strafeRight(46,0.6);
 
-
+//      Move Red Foundation
     }
 
 }

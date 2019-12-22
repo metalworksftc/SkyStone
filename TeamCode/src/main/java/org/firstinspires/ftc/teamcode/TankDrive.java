@@ -24,16 +24,14 @@ public class TankDrive extends OpMode {
         leftTailServo = hardwareMap.servo.get("lts");
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
-        horizontal = hardwareMap.dcMotor.get("bm * 0.5");
+        vertical.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        horizontal = hardwareMap.dcMotor.get("bm");
         strafeMotor = hardwareMap.dcMotor.get("sm");
     }
 
     @Override
     public void loop() {
-
-
-        // TODO
-//         Gamepad1
+//        Gamepad1
 
         rm.setPower(- gamepad1.left_stick_y);
         lm.setPower(- gamepad1.right_stick_y);
@@ -46,7 +44,7 @@ public class TankDrive extends OpMode {
 //        Gamepad2
 
         vertical.setPower( - gamepad2.left_stick_y);
-        horizontal.setPower(gamepad2.right_stick_y);
+        horizontal.setPower(gamepad2.right_stick_y * 0.5);
 
         stoneServo.setPosition(gamepad2.right_trigger * -0.2 + 1);
 
