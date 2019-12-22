@@ -15,8 +15,8 @@ public class FindSkystoneBlue extends MethodLibrary {
         //Put your autonomous code after this line
         reverse(38, 0.6);
         waitSec(1);
-        int block2 = rightColorSensor.alpha();
-        int block1 = leftColorSensor.alpha();
+        int block1 = rightColorSensor.alpha();
+        int block2 = leftColorSensor.alpha();
 
         int skystone;
         if (isBlack(block1)) {
