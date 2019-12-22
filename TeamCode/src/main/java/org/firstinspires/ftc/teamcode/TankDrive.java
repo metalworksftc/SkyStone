@@ -24,40 +24,37 @@ public class TankDrive extends OpMode {
         leftTailServo = hardwareMap.servo.get("lts");
         stoneServo = hardwareMap.servo.get("ss");
         vertical =  hardwareMap.dcMotor.get("tm");
-        horizontal = hardwareMap.dcMotor.get("bm");
+        horizontal = hardwareMap.dcMotor.get("bm * 0.5");
         strafeMotor = hardwareMap.dcMotor.get("sm");
     }
 
     @Override
     public void loop() {
+
+
+        // TODO
+        //        Gamepad1
+
         rm.setPower(- gamepad1.left_stick_y);
         lm.setPower(- gamepad1.right_stick_y);
 
-        // TODO
-        //What if both triggers are pressed?
-
         strafeMotor.setPower(gamepad1.right_trigger - gamepad1.left_trigger);
 
-//        Slownessing D pad controls    z
-//        strafeMotor.setPower(decodeDPad(gamepad1.dpad_right));
-//        strafeMotor.setPower( - decodeDPad(gamepad1.dpad_left));
-//        lm.setPower(decodeDPad(gamepad1.dpad_up));
-//        rm.setPower(decodeDPad(gamepad1.dpad_up));
-//        lm.setPower( - decodeDPad(gamepad1.dpad_down));
-//        rm.setPower(decodeDPad(gamepad1.dpad_down));
+        rightTailServo.setPosition(decodeBumper(gamepad1.left_bumper));
+        leftTailServo.setPosition(decodeBumper(gamepad1.left_bumper) * -1 + 1);
 
-        rightTailServo.setPosition(gamepad2.left_trigger);
-        leftTailServo.setPosition(gamepad2.left_trigger * -1 + 1);
-        stoneServo.setPosition(gamepad2.right_trigger * -0.2 + 1);
+//        Gamepad2
 
         vertical.setPower( - gamepad2.left_stick_y);
         horizontal.setPower(gamepad2.right_stick_y);
 
+        stoneServo.setPosition(gamepad2.right_trigger * -0.2 + 1);
+
     }
 
-    protected double decodeDPad(boolean button) {
+    protected double decodeBumper(boolean button) {
         if (button) {
-            return 0.5;
+            return 1;
         }
         return 0;
     }
