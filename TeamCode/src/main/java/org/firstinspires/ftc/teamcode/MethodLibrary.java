@@ -357,10 +357,10 @@ public abstract class MethodLibrary extends LinearOpMode {
 
 
     public void deliverBlock(double dist, String dir) {
-        drive(5,0.5);
+        drive(9,0.5);
         if (dir ==  "r") absoluteTurnPower(-90,0.3);
         if (dir == "l") absoluteTurnPower(90,0.3);
-        reverse(dist,0.8);
+        reverse(dist,5);
         //parks on line
         drive(20,0.6);
     }
