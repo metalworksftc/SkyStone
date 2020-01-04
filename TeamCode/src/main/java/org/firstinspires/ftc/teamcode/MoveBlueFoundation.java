@@ -38,7 +38,6 @@ public class MoveBlueFoundation extends MethodLibrary {
         strafeLeft(46,0.6);
 
 //      Move Blue Foundation
-
     }
 
 }

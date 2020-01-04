@@ -16,10 +16,8 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 public abstract class MethodLibrary extends LinearOpMode {
-    protected static final double DRIVE_CALIBRATION = 15;
-    protected static final double STRAFE_CALIBRATION = 61.6;
 
-    /*
+    /**
      * Instance Variables
      */
 
@@ -33,35 +31,8 @@ public abstract class MethodLibrary extends LinearOpMode {
     protected Orientation angles;
     //sensors
     protected ColorSensor leftColorSensor, rightColorSensor;
-   // Servo
+    // Servo
     protected Servo rightTailServo, leftTailServo, stoneServo;
-
-
-
-
-    /*
-     * Methods
-     */
-
-    protected void waitSec(double seconds) {
-
-        ElapsedTime time = new ElapsedTime();
-        time.startTime();
-
-        while(time.seconds() < seconds && opModeIsActive()) {
-//            telemetry.addLine("Waiting for " + (seconds - time.seconds()) + " seconds");
-//            telemetry.update();
-        }
-
-    }
-
-    /**
-     * @return the angle (in degrees) the robot is currently facing towards, between -180 to 180 exclusive
-     */
-    protected float getHeading() {
-        angles = imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX);
-        return AngleUnit.DEGREES.normalize(angles.firstAngle);
-    }
 
 
     // Initialize the Autonomous hardware map
@@ -103,10 +74,36 @@ public abstract class MethodLibrary extends LinearOpMode {
     }
 
     /**
+     * Methods
+     */
+
+    protected void waitSec(double seconds) {
+
+        ElapsedTime time = new ElapsedTime();
+        time.startTime();
+
+        while(time.seconds() < seconds && opModeIsActive()) {
+        }
+
+    }
+
+    /**
+     * @return the angle (in degrees) the robot is currently facing towards, between -180 to 180 exclusive
+     */
+    protected float getHeading() {
+        angles = imu.getAngularOrientation().toAxesReference(AxesReference.INTRINSIC).toAxesOrder(AxesOrder.ZYX);
+        return AngleUnit.DEGREES.normalize(angles.firstAngle);
+    }
+
+
+
+    /**
      * Drives forwards only
      * @param inches the number of inches to drive
      * @param power the speed at which to drive, between -1 and 1 inclusive
      */
+    protected static final double DRIVE_CALIBRATION = 15;
+
     protected void drive(double inches, double power) {
 
         final double COUNTS_PER_INCH = 1000.0/DRIVE_CALIBRATION;
@@ -235,6 +232,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         vertical.setPower(0);
         waitSec(0.5);
     }
+    protected static final double STRAFE_CALIBRATION = 61.6;
 
     protected void strafeRight(double inches, double power) {
 
@@ -326,11 +324,13 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(0.5);
     }
 
+
     protected void engageHook() {
         rightTailServo.setPosition(0);
         leftTailServo.setPosition(1);
         waitSec(1);
     }
+
 
     protected void disengageHook() {
         rightTailServo.setPosition(1);
@@ -338,10 +338,13 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(1);
     }
 
+
     protected void grab()  {
         stoneServo.setPosition(1);
         waitSec(1.5);
     }
+
+
     protected void release() {
         stoneServo.setPosition(0.5);
         waitSec(1.5);

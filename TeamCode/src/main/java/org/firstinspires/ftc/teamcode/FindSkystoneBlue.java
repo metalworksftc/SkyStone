@@ -51,9 +51,9 @@ public class FindSkystoneBlue extends MethodLibrary {
 
     private void goToStone1() {
         drive(1,0.6);
-        strafeLeft(5,0.5);
+        strafeLeft(3,0.5);
         pickUpBlock();
-        deliverBlock(55, "l");
+        deliverBlock(55,"l");
     }
 
     public void pickUpBlock() {
