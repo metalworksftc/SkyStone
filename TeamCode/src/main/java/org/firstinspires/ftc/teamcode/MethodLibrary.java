@@ -32,7 +32,7 @@ public abstract class MethodLibrary extends LinearOpMode {
     //sensors
     protected ColorSensor leftColorSensor, rightColorSensor;
     // Servo
-    protected Servo rightTailServo, leftTailServo, stoneServo;
+    protected Servo rightTailServo, leftTailServo, stoneServo, dumpServo;
 
 
     // Initialize the Autonomous hardware map
@@ -44,6 +44,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         rightTailServo = hardwareMap.servo.get("rts");
         leftTailServo = hardwareMap.servo.get("lts");
         stoneServo = hardwareMap.servo.get("ss");
+        dumpServo = hardwareMap.servo.get("ds");
         vertical =  hardwareMap.dcMotor.get("tm");
         vertical.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         horizontal = hardwareMap.dcMotor.get("bm");

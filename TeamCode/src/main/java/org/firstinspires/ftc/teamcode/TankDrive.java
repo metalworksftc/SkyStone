@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp(name = "TankDrive")
 //@Disabled
 public class TankDrive extends OpMode {
-    Servo leftTailServo,rightTailServo, stoneServo;
+    Servo leftTailServo,rightTailServo, stoneServo, dumpServo;
 
     DcMotor lm, rm, vertical, horizontal, strafeMotor;
 
@@ -23,6 +23,7 @@ public class TankDrive extends OpMode {
         rightTailServo = hardwareMap.servo.get("rts");
         leftTailServo = hardwareMap.servo.get("lts");
         stoneServo = hardwareMap.servo.get("ss");
+        dumpServo = hardwareMap.servo.get("ds");
         vertical =  hardwareMap.dcMotor.get("tm");
         vertical.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         horizontal = hardwareMap.dcMotor.get("bm");
@@ -47,6 +48,15 @@ public class TankDrive extends OpMode {
         horizontal.setPower(gamepad2.right_stick_y * 0.5);
 
         stoneServo.setPosition(gamepad2.right_trigger * -0.2 + 1);
+
+
+        if (gamepad2.left_bumper && gamepad2.right_bumper) {
+            dumpServo.setPosition ( 0.7);
+        }
+        else {
+            dumpServo.setPosition(0);
+        }
+
 
     }
 
