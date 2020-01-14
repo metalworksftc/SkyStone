@@ -50,11 +50,13 @@ public class TankDrive extends OpMode {
         stoneServo.setPosition(gamepad2.right_trigger * -0.2 + 1);
 
 
+
+//        dumpServo.setPosition((gamepad2.right_trigger));
         if (gamepad2.left_bumper && gamepad2.right_bumper) {
-            dumpServo.setPosition ( 0.7);
+            dumpServo.setPosition (0.5);
         }
         else {
-            dumpServo.setPosition(0);
+            dumpServo.setPosition(1);
         }
 
 
