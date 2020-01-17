@@ -34,6 +34,7 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
         //detach foundation
         disengageHook();
         //parking
+        absoluteTurnPower(-30,0.7);
         absoluteTurnPower(0,0.3);
         strafeRight(27,0.5);
         drive(31,driveSpeed);

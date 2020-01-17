@@ -34,6 +34,7 @@ public class MoveBlueFoundation extends MethodLibrary {
         //detach foundation
         disengageHook();
         //parking
+        absoluteTurnPower(-30,0.7);
         absoluteTurnPower(0,0.3);
         strafeLeft(46,0.6);
 
