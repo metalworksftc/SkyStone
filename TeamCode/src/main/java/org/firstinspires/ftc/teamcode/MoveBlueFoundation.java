@@ -24,10 +24,8 @@ public class MoveBlueFoundation extends MethodLibrary {
         absoluteTurnPower(90,0.3);
         drive(34,driveSpeed);
         absoluteTurnPower(0,0.3);
-        drive(21,driveSpeed);
+        drive(14,driveSpeed);
         //attach to foundation
-//        disengageHook();
-//        drive(3,driveSpeed/2);
         engageHook();
         //drive to building zone
         reverse(44,dragSpeed);

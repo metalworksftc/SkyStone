@@ -24,10 +24,8 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
         absoluteTurnPower(-90,0.3);
         drive(34,driveSpeed);
         absoluteTurnPower(0,0.3);
-        drive(21,driveSpeed);
+        drive(14,driveSpeed);
         //attach to foundation
-//        disengageHook();
-//        drive(3,driveSpeed/2);
         engageHook();
         //drive to building zone
         reverse(44,dragSpeed);
@@ -37,11 +35,10 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
         absoluteTurnPower(-30,0.7);
         absoluteTurnPower(0,0.3);
         strafeRight(27,0.5);
-        drive(31,driveSpeed);
+        drive(38,driveSpeed);
         strafeRight(17,0.5);
 
 //      Move Red Foundation Bridge Side
     }
 
 }
-

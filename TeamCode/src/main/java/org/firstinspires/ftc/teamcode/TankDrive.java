@@ -47,7 +47,7 @@ public class TankDrive extends OpMode {
         vertical.setPower( - gamepad2.left_stick_y);
         horizontal.setPower(gamepad2.right_stick_y * 0.5);
 
-        stoneServo.setPosition(gamepad2.right_trigger * -0.2 + 1);
+        stoneServo.setPosition(gamepad2.right_trigger);
 
 
 

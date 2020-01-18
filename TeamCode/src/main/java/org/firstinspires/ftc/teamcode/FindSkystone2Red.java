@@ -44,14 +44,14 @@ public class FindSkystone2Red extends MethodLibrary {
     }
 
     private void goToStone2() {
-        drive(1.5,0.6);
+        drive(2,0.6);
         strafeLeft(3,0.5);
         pickUpBlock();
         deliverBlock(65,"r");
     }
 
     private void goToStone1() {
-        drive(1,0.6);
+        drive(2,0.6);
         strafeRight(3,0.5);
         pickUpBlock();
         deliverBlock(55,"r");
@@ -65,8 +65,5 @@ public class FindSkystone2Red extends MethodLibrary {
     }
 //    Find Skystone Red
 
-    private boolean isBlack(int alpha) {
-        return alpha < 100;
-    }
 
 }

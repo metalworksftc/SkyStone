@@ -16,8 +16,8 @@ public class FindSkystone2Blue extends MethodLibrary {
         reverse(35, 0.6);
         reverse(3.5,0.4);
         waitSec(1);
-        int block1 = rightColorSensor.alpha();
-        int block2 = leftColorSensor.alpha();
+        int block2 = rightColorSensor.alpha();
+        int block1 = leftColorSensor.alpha();
 
         int skystone;
         if (isBlack(block1)) {
@@ -44,14 +44,14 @@ public class FindSkystone2Blue extends MethodLibrary {
     }
 
     private void goToStone2() {
-        drive(1.5,0.6);
+        drive(2,0.6);
         strafeRight(3,0.5);
         pickUpBlock();
         deliverBlock(65,"l");
     }
 
     private void goToStone1() {
-        drive(1,0.6);
+        drive(2,0.6);
         strafeLeft(3,0.5);
         pickUpBlock();
         deliverBlock(55,"l");
@@ -66,7 +66,7 @@ public class FindSkystone2Blue extends MethodLibrary {
 //    Find Skystone Blue
 
     private boolean isBlack(int alpha) {
-        return alpha < 100;
+        return alpha < 90;
     }
 
 }

@@ -114,9 +114,13 @@ public abstract class MethodLibrary extends LinearOpMode {
         left.setPower(power);
         right.setPower(power);
 
-        while (left.getCurrentPosition() < target) {
-            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target + " counts");
+        int prevPoss = -10;
+        while (left.getCurrentPosition() < target && left.getCurrentPosition() > prevPoss) {
+            prevPoss = left.getCurrentPosition();
+            telemetry.addLine(prevPoss + " Driving to " + target);
+            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target + " counts from " + prevPoss);
             telemetry.update();
+            waitSec(0.5);
         }
 
         left.setPower(0);
@@ -367,6 +371,10 @@ public abstract class MethodLibrary extends LinearOpMode {
         reverse(dist,5);
         //parks on line
         drive(20,0.6);
+    }
+
+    public boolean isBlack(int alpha) {
+        return alpha < 90;
     }
 
 }
