@@ -64,9 +64,4 @@ public class FindSkystone2Blue extends MethodLibrary {
         grab();
     }
 //    Find Skystone Blue
-
-    private boolean isBlack(int alpha) {
-        return alpha < 90;
-    }
-
 }

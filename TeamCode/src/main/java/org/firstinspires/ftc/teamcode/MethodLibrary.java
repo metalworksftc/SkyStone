@@ -114,7 +114,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         left.setPower(power);
         right.setPower(power);
 
-        int prevPoss = -10;
+        int prevPoss = -2147483648;
         while (left.getCurrentPosition() < target && left.getCurrentPosition() > prevPoss) {
             prevPoss = left.getCurrentPosition();
             telemetry.addLine(prevPoss + " Driving to " + target);
