@@ -249,6 +249,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         while (strafeMotor.getCurrentPosition() < target) {
             telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
+            telemetry.addLine("Strafing " + imu.getAngularOrientation() );
             telemetry.update();
         }
 
@@ -268,6 +269,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         while (strafeMotor.getCurrentPosition() > target) {
             telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
+            telemetry.addLine("Strafing " + imu.getAngularOrientation());
             telemetry.update();
         }
 

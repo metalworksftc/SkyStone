@@ -37,21 +37,21 @@ public class FindSkystone2Red extends MethodLibrary {
     }
 
     private void goToStone3() {
-        drive(2,0.6);
+        drive(1,0.6);
         strafeLeft(8,0.5);
         pickUpBlock();
         deliverBlock(70,"r");
     }
 
     private void goToStone2() {
-        drive(2,0.6);
+        drive(1,0.6);
         strafeLeft(3,0.5);
         pickUpBlock();
         deliverBlock(65,"r");
     }
 
     private void goToStone1() {
-        drive(2,0.6);
+        drive(1,0.6);
         strafeRight(3,0.5);
         pickUpBlock();
         deliverBlock(55,"r");

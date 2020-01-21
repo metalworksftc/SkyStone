@@ -21,21 +21,19 @@ public class MoveBlueFoundationBridgeSide extends MethodLibrary {
         //drive to foundation
         disengageHook();
         drive(20,driveSpeed);
-        absoluteTurnPower(90,0.3);
-        drive(34,driveSpeed);
-        absoluteTurnPower(0,0.3);
-        drive(14,driveSpeed);
+        strafeRight(25, driveSpeed);
+        drive(6,driveSpeed);
         //attach to foundation
         engageHook();
         //drive to building zone
-        reverse(44,dragSpeed);
+        reverse(48,dragSpeed);
         //detach foundation
         disengageHook();
         //parking
-        absoluteTurnPower(30,0.7);
+        absoluteTurnPower(12,0.7);
         absoluteTurnPower(0,0.3);
         strafeLeft(27,0.5);
-        drive(31,driveSpeed);
+        drive(38,driveSpeed);
         strafeLeft(17,0.5);
 
 //      Move Blue Foundation Bridge Side
