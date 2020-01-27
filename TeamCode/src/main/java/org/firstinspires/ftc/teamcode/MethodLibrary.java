@@ -103,7 +103,7 @@ public abstract class MethodLibrary extends LinearOpMode {
      * @param inches the number of inches to drive
      * @param power the speed at which to drive, between -1 and 1 inclusive
      */
-    protected static final double DRIVE_CALIBRATION = 15;
+    protected static final double DRIVE_CALIBRATION = 19.5;
 
     protected void drive(double inches, double power) {
 
@@ -114,11 +114,9 @@ public abstract class MethodLibrary extends LinearOpMode {
         left.setPower(power);
         right.setPower(power);
 
-        int prevPoss = -2147483648;
-        while (left.getCurrentPosition() < target && left.getCurrentPosition() > prevPoss) {
-            prevPoss = left.getCurrentPosition();
-            telemetry.addLine(prevPoss + " Driving to " + target);
-            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target + " counts from " + prevPoss);
+//        int prevPoss = -2147483648;
+        while (left.getCurrentPosition() < target ) {
+            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target);
             telemetry.update();
             waitSec(0.5);
         }

@@ -20,9 +20,9 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
 
         //drive to foundation
         disengageHook();
-        drive(20,driveSpeed);
+        drive(22,driveSpeed);
         strafeLeft(25, driveSpeed);
-        drive(6,driveSpeed);
+        drive(22,driveSpeed);
         //attach to foundation
         engageHook();
         //drive to building zone
@@ -32,9 +32,9 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
         //parking
         absoluteTurnPower(-12,0.7);
         absoluteTurnPower(0,0.3);
-        strafeRight(27,0.5);
+        strafeRight(24,0.5);
         drive(38,driveSpeed);
-        strafeRight(17,0.5);
+        strafeRight(20,0.5);
 
 //      Move Red Foundation Bridge Side
     }

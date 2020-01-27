@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "CalibrateForward")
+@Autonomous(name = "Park")
 //@Disabled
-public class CalibrateForward extends MethodLibrary {
+public class Park extends MethodLibrary {
 
     @Override
     public void runOpMode() {
@@ -12,9 +12,7 @@ public class CalibrateForward extends MethodLibrary {
         hardwareMap();
 
         waitForStart();
-        drive(1000, 0.6);
-
+        //Put your autonomous code after this line
+        drive(8, 0.6);
     }
-
 }
-

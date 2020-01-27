@@ -13,7 +13,7 @@ public class FindSkystone2Blue extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
-        reverse(35, 0.6);
+        reverse(44.5, 0.6);
         reverse(3.5,0.4);
         waitSec(1);
         int block2 = rightColorSensor.alpha();
@@ -37,7 +37,8 @@ public class FindSkystone2Blue extends MethodLibrary {
     }
 
     private void goToStone3() {
-        drive(2,0.6);
+        waitSec(1);
+        drive(.5,0.6);
         strafeRight(8,0.5);
         pickUpBlock();
         deliverBlock(70,"l");
@@ -45,13 +46,14 @@ public class FindSkystone2Blue extends MethodLibrary {
 
     private void goToStone2() {
         drive(2,0.6);
-        strafeRight(3,0.5);
+        strafeLeft(3,0.5);
         pickUpBlock();
         deliverBlock(65,"l");
     }
 
     private void goToStone1() {
-        drive(2,0.6);
+        waitSec(1);
+        drive(1,0.6);
         strafeLeft(3,0.5);
         pickUpBlock();
         deliverBlock(55,"l");
