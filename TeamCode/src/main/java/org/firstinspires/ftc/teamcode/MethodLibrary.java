@@ -8,6 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
@@ -31,6 +32,8 @@ public abstract class MethodLibrary extends LinearOpMode {
     protected Orientation angles;
     //sensors
     protected ColorSensor leftColorSensor, rightColorSensor;
+    protected TouchSensor touchSensor;
+
     // Servo
     protected Servo rightTailServo, leftTailServo, stoneServo, dumpServo;
 
@@ -51,6 +54,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         strafeMotor = hardwareMap.dcMotor.get("sm");
         leftColorSensor = hardwareMap.colorSensor.get("lcs");
         rightColorSensor = hardwareMap.colorSensor.get("rcs");
+        touchSensor = hardwareMap.touchSensor.get("ts");
 
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
