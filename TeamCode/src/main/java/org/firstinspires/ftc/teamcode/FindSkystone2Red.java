@@ -64,6 +64,7 @@ public class FindSkystone2Red extends MethodLibrary {
 
     public void pickUpBlock() {
         raise(5);
+        release();
         extend(4);
         lower(5);
         grab();
