@@ -158,6 +158,67 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(0.5);
     }
 
+    protected static final double STRAFE_CALIBRATION = 61.6;
+
+    protected void strafeRight(double inches, double power) {
+
+        final double COUNTS_PER_INCH = 3000.0/STRAFE_CALIBRATION;
+
+        int target = strafeMotor.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        strafeMotor.setPower(power);
+
+        while (strafeMotor.getCurrentPosition() < target) {
+            telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
+            telemetry.addLine("Strafing " + imu.getAngularOrientation() );
+            telemetry.update();
+        }
+
+        strafeMotor.setPower(0);
+        waitSec(.5);
+    }
+
+    protected void strafeLeft(double inches, double power) {
+
+        final double COUNTS_PER_INCH = -3000.0/STRAFE_CALIBRATION;
+
+        power = -power;
+
+        int target = strafeMotor.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        strafeMotor.setPower(power);
+
+        while (strafeMotor.getCurrentPosition() > target) {
+            telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
+            telemetry.addLine("Strafing " + imu.getAngularOrientation());
+            telemetry.update();
+        }
+
+        strafeMotor.setPower(0);
+        waitSec(0.5);
+    }
+
+    protected void driveBump(double inches, double power) {
+
+        final double COUNTS_PER_INCH = 1000.0/DRIVE_CALIBRATION;
+
+        int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        left.setPower(power);
+        right.setPower(power);
+
+//        int prevPoss = -2147483648;
+        while (!touchSensor.isPressed() && left.getCurrentPosition() < target ) {
+            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target);
+            telemetry.update();
+            waitSec(0.5);
+        }
+
+        left.setPower(0);
+        right.setPower(0);
+        waitSec(.5);
+    }
+
     protected void extend(double inches) {
 
         final double COUNTS_PER_INCH = 1000.0/7.0;
@@ -239,46 +300,7 @@ public abstract class MethodLibrary extends LinearOpMode {
         vertical.setPower(0);
         waitSec(0.5);
     }
-    protected static final double STRAFE_CALIBRATION = 61.6;
 
-    protected void strafeRight(double inches, double power) {
-
-        final double COUNTS_PER_INCH = 3000.0/STRAFE_CALIBRATION;
-
-        int target = strafeMotor.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
-
-        strafeMotor.setPower(power);
-
-        while (strafeMotor.getCurrentPosition() < target) {
-            telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
-            telemetry.addLine("Strafing " + imu.getAngularOrientation() );
-            telemetry.update();
-        }
-
-        strafeMotor.setPower(0);
-        waitSec(.5);
-    }
-
-    protected void strafeLeft(double inches, double power) {
-
-        final double COUNTS_PER_INCH = -3000.0/STRAFE_CALIBRATION;
-
-        power = -power;
-
-        int target = strafeMotor.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
-
-        strafeMotor.setPower(power);
-
-        while (strafeMotor.getCurrentPosition() > target) {
-            telemetry.addLine("Driving: " + strafeMotor.getCurrentPosition() + " of " + target + " counts");
-            telemetry.addLine("Strafing " + imu.getAngularOrientation());
-            telemetry.update();
-        }
-
-
-        strafeMotor.setPower(0);
-        waitSec(0.5);
-    }
 
 
     /**
