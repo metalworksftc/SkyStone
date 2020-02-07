@@ -43,22 +43,20 @@ public abstract class MethodLibrary extends LinearOpMode {
 
         left = hardwareMap.dcMotor.get("lm");
         right = hardwareMap.dcMotor.get("rm");
-        vertical = hardwareMap.dcMotor.get("bm");
+        horizontal = hardwareMap.dcMotor.get("bm");
+        vertical =  hardwareMap.dcMotor.get("tm");
+        vertical.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        strafeMotor = hardwareMap.dcMotor.get("sm");
         rightTailServo = hardwareMap.servo.get("rts");
         leftTailServo = hardwareMap.servo.get("lts");
         stoneServo = hardwareMap.servo.get("ss");
         dumpServo = hardwareMap.servo.get("ds");
-        vertical =  hardwareMap.dcMotor.get("tm");
-        vertical.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        horizontal = hardwareMap.dcMotor.get("bm");
-        strafeMotor = hardwareMap.dcMotor.get("sm");
         leftColorSensor = hardwareMap.colorSensor.get("lcs");
         rightColorSensor = hardwareMap.colorSensor.get("rcs");
         touchSensor = hardwareMap.touchSensor.get("ts");
 
 
         left.setDirection(DcMotorSimple.Direction.REVERSE);
-
         horizontal.setDirection(DcMotorSimple.Direction.REVERSE);
         BNO055IMU.Parameters parameters2 = new BNO055IMU.Parameters();
         parameters2.angleUnit           = BNO055IMU.AngleUnit.DEGREES;
@@ -122,7 +120,6 @@ public abstract class MethodLibrary extends LinearOpMode {
         while (left.getCurrentPosition() < target ) {
             telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target);
             telemetry.update();
-            waitSec(0.5);
         }
 
         left.setPower(0);
@@ -130,12 +127,6 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(.5);
     }
 
-
-    /**
-     * Drives forwards only
-     * @param inches the number of inches to drive
-     * @param power the speed at which to drive, between -1 and 1 inclusive
-     */
     protected void reverse(double inches, double power) {
 
         final double COUNTS_PER_INCH = -1000 / DRIVE_CALIBRATION;
@@ -152,10 +143,38 @@ public abstract class MethodLibrary extends LinearOpMode {
             telemetry.update();
         }
 
-
         left.setPower(0);
         right.setPower(0);
         waitSec(0.5);
+    }
+
+    protected double driveBump(double inches, double power) {
+
+        final double COUNTS_PER_INCH = 1000.0/DRIVE_CALIBRATION;
+
+        int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
+
+        int intPosition = left.getCurrentPosition();
+
+        left.setPower(power);
+        right.setPower(power);
+
+        while (!touchSensor.isPressed() && left.getCurrentPosition() < target ) {
+            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target);
+            telemetry.update();
+        }
+
+        left.setPower(0);
+        right.setPower(0);
+        waitSec(.5);
+
+        int finPosition = left.getCurrentPosition();
+
+        int disTraveled = finPosition - intPosition;
+
+        double inTraveled = disTraveled/COUNTS_PER_INCH;
+
+        return inTraveled;
     }
 
     protected static final double STRAFE_CALIBRATION = 61.6;
@@ -198,27 +217,6 @@ public abstract class MethodLibrary extends LinearOpMode {
         waitSec(0.5);
     }
 
-    protected void driveBump(double inches, double power) {
-
-        final double COUNTS_PER_INCH = 1000.0/DRIVE_CALIBRATION;
-
-        int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
-
-        left.setPower(power);
-        right.setPower(power);
-
-//        int prevPoss = -2147483648;
-        while (!touchSensor.isPressed() && left.getCurrentPosition() < target ) {
-            telemetry.addLine("Driving: " + left.getCurrentPosition() + " of " + target);
-            telemetry.update();
-            waitSec(0.5);
-        }
-
-        left.setPower(0);
-        right.setPower(0);
-        waitSec(.5);
-    }
-
     protected void extend(double inches) {
 
         final double COUNTS_PER_INCH = 1000.0/7.0;
@@ -252,7 +250,6 @@ public abstract class MethodLibrary extends LinearOpMode {
             telemetry.addLine("Driving: " + horizontal.getCurrentPosition() + " of " + target + " counts");
             telemetry.update();
         }
-
 
         horizontal.setPower(0);
         waitSec(0.5);
@@ -293,9 +290,6 @@ public abstract class MethodLibrary extends LinearOpMode {
             telemetry.addLine("Driving: " + vertical.getCurrentPosition() + " of " + target + " counts");
             telemetry.update();
         }
-
-
-
 
         vertical.setPower(0);
         waitSec(0.5);
