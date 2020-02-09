@@ -14,10 +14,6 @@ public class MoveBlueFoundation extends MethodLibrary {
         waitForStart();
         //Put your autonomous code after this line
 
-        double driveSpeed=0.5;
-        double robotLength=17.5;
-        double dragSpeed=0.8;
-
         //drive to foundation
         disengageHook();
         drive(22,driveSpeed);
@@ -30,12 +26,11 @@ public class MoveBlueFoundation extends MethodLibrary {
         //detach foundation
         disengageHook();
         //parking
-        absoluteTurnPower(20,0.7);
+        absoluteTurnPower(-20,0.7);
         absoluteTurnPower(0,0.3);
         strafeLeft(30,0.6);
         drive(1,driveSpeed);
         strafeLeft(17,0.6);
-
 //      Move Blue Foundation
     }
 

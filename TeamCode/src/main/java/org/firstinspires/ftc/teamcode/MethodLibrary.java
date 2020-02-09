@@ -11,6 +11,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.TouchSensor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
@@ -105,11 +106,12 @@ public abstract class MethodLibrary extends LinearOpMode {
      * @param inches the number of inches to drive
      * @param power the speed at which to drive, between -1 and 1 inclusive
      */
-    protected static final double DRIVE_CALIBRATION = 19.5;
+    protected static final double DRIVE_CALIBRATION = 54;
+    protected static final double CALIBRATION_COUNTS = 4848;
 
     protected void drive(double inches, double power) {
 
-        final double COUNTS_PER_INCH = 1000.0/DRIVE_CALIBRATION;
+        final double COUNTS_PER_INCH = CALIBRATION_COUNTS/DRIVE_CALIBRATION;
 
         int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -129,7 +131,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected void reverse(double inches, double power) {
 
-        final double COUNTS_PER_INCH = -1000 / DRIVE_CALIBRATION;
+        final double COUNTS_PER_INCH = -CALIBRATION_COUNTS / DRIVE_CALIBRATION;
 
         power = -power;
 
@@ -150,7 +152,7 @@ public abstract class MethodLibrary extends LinearOpMode {
 
     protected double driveBump(double inches, double power) {
 
-        final double COUNTS_PER_INCH = 1000.0/DRIVE_CALIBRATION;
+        final double COUNTS_PER_INCH = CALIBRATION_COUNTS/DRIVE_CALIBRATION;
 
         int target = left.getCurrentPosition() + (int) (COUNTS_PER_INCH * inches);
 
@@ -173,6 +175,11 @@ public abstract class MethodLibrary extends LinearOpMode {
         int disTraveled = finPosition - intPosition;
 
         double inTraveled = disTraveled/COUNTS_PER_INCH;
+
+        //telemetry.addLine("Distance in counts " + disTraveled);
+        //telemetry.addLine("Distance in inches " + inTraveled);
+        //telemetry.update();
+        //waitSec(1);
 
         return inTraveled;
     }
@@ -396,5 +403,10 @@ public abstract class MethodLibrary extends LinearOpMode {
     public boolean isBlack(int alpha) {
         return alpha < 90;
     }
+
+    double driveSpeed = 0.5;
+    double robotLength = 17.5;
+    double dragSpeed = 0.8;
+    double intApproach = 10;
 
 }
