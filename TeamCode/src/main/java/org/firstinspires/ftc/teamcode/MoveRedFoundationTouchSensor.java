@@ -14,19 +14,20 @@ public class MoveRedFoundationTouchSensor extends MethodLibrary {
         waitForStart();
         //Put your autonomous code after this line
 
-        double driveSpeed=0.5;
-        double robotLength=17.5;
-        double dragSpeed=0.8;
+        double driveSpeed = 0.5;
+        double robotLength = 17.5;
+        double dragSpeed = 0.8;
+        double intApproach = 21;
 
         //drive to foundation
         disengageHook();
-        drive(21,driveSpeed);
+        drive(intApproach,driveSpeed);
         strafeLeft(25,driveSpeed);
-        driveBump(40,driveSpeed);
+        double driveBumpDist = driveBump(40,driveSpeed);
        //attach to foundation
         engageHook();
         //drive to building zone
-        reverse(57,dragSpeed);
+        reverse(driveBumpDist + intApproach,dragSpeed);
         //detach foundation
         disengageHook();
         //parking
