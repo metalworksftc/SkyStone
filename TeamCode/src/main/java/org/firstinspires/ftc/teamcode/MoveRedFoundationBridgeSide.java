@@ -1,9 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 @Autonomous(name = "MoveRedFoundationBridgeSide")
-//@Disabled
+@Disabled
 public class MoveRedFoundationBridgeSide extends MethodLibrary {
 
     @Override
@@ -13,10 +14,6 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
-
-        double driveSpeed=0.5;
-        double robotLength=17.5;
-        double dragSpeed=0.8;
 
         //drive to foundation
         disengageHook();
@@ -30,9 +27,9 @@ public class MoveRedFoundationBridgeSide extends MethodLibrary {
         //detach foundation
         disengageHook();
         //parking
-        absoluteTurnPower(-12,0.7);
+        absoluteTurnPower(-20,0.7);
         absoluteTurnPower(0,0.3);
-        strafeRight(24,0.5);
+        strafeRight(24,0.6);
         drive(38,driveSpeed);
         strafeRight(20,0.5);
 

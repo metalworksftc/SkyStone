@@ -1,11 +1,10 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 
 @Autonomous(name = "MoveBlueFoundationBridgeSide")
-@Disabled
-public class MoveBlueFoundationBridgeSide extends MethodLibrary {
+//@Disabled
+public class MoveBlueFoundationBridgeSideTouchSensor extends MethodLibrary {
 
     @Override
     public void runOpMode() {
@@ -17,22 +16,24 @@ public class MoveBlueFoundationBridgeSide extends MethodLibrary {
 
         //drive to foundation
         disengageHook();
-        drive(22,driveSpeed);
-        strafeRight(25, driveSpeed);
-        drive(22,driveSpeed);
-        //attach to foundation
+        drive(intApproach + 2,driveSpeed);
+        strafeRight(10,driveSpeed);
+        double driveBumpDist = driveBump(30,driveSpeed);
+       //attach to foundation
         engageHook();
         //drive to building zone
-        reverse(48,dragSpeed);
+        reverse(driveBumpDist + 1 + intApproach,dragSpeed);
         //detach foundation
         disengageHook();
         //parking
         absoluteTurnPower(-20,0.7);
         absoluteTurnPower(0,0.3);
-        strafeLeft(24,0.5);
-        drive(38,driveSpeed);
-        strafeLeft(20,0.5);
-//      Move Blue Foundation Bridge Side
+        strafeLeft(24,0.6);
+        drive(22,driveSpeed);
+        absoluteTurnPower(-20,0.7);
+        absoluteTurnPower(0,0.3);
+        strafeLeft(16,0.6);
+//      Move Blue Foundation Bridge Side Touch Sensor
     }
 
 }

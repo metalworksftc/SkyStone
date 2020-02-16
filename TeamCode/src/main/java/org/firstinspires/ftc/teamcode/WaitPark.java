@@ -2,9 +2,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "ParkBridgeSide")
+@Autonomous(name = "WaitPark")
 //@Disabled
-public class ParkBridgeSide extends MethodLibrary {
+public class WaitPark extends MethodLibrary {
 
     @Override
     public void runOpMode() {
@@ -13,7 +13,7 @@ public class ParkBridgeSide extends MethodLibrary {
 
         waitForStart();
         //Put your autonomous code after this line
-        drive(32, 0.6);
-        strafeLeft(8, 0.6);
+        waitSec(10);
+        strafeRight(10,driveSpeed);
     }
 }

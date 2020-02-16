@@ -12,7 +12,12 @@ public class TouchSensorCalibration extends MethodLibrary {
         hardwareMap();
 
         waitForStart();
-        driveBump(1000,driveSpeed);
+        double inTraveled = driveBump(1000,driveSpeed);
+        double disTraveled = inTraveled * CALIBRATION_COUNTS/DRIVE_CALIBRATION;
+        telemetry.addLine("Distance in counts " + disTraveled);
+        telemetry.addLine("Distance in inches " + inTraveled);
+        telemetry.update();
+        waitSec(5);
     }
 
 }

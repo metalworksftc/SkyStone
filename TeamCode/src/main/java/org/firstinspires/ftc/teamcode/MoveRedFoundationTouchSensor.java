@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "MoveRedFoundationTouchSensor")
+@Autonomous(name = "MoveRedFoundation")
 //@Disabled
 public class MoveRedFoundationTouchSensor extends MethodLibrary {
 
@@ -17,8 +17,8 @@ public class MoveRedFoundationTouchSensor extends MethodLibrary {
         //drive to foundation
         disengageHook();
         drive(intApproach,driveSpeed);
-        strafeLeft(25,driveSpeed);
-        double driveBumpDist = driveBump(40,driveSpeed);
+        strafeLeft(12,driveSpeed);
+        double driveBumpDist = driveBump(30,driveSpeed);
        //attach to foundation
         engageHook();
         //drive to building zone
@@ -29,7 +29,7 @@ public class MoveRedFoundationTouchSensor extends MethodLibrary {
         absoluteTurnPower(-20,0.7);
         absoluteTurnPower(0,0.3);
         strafeRight(24,0.6);
-        drive(1,driveSpeed);
+        drive(4,driveSpeed);
         strafeRight(20,0.6);
 //      Move Red Foundation
     }
